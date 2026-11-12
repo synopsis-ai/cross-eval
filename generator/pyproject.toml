@@ -1,0 +1,16 @@
+[project]
+name = "cross-eval"
+version = "0.1.0"
+description = "Generator for the CROSS (Cross-system Reasoning Over Scattered Sources) eval dataset."
+requires-python = ">=3.13,<3.14"
+dependencies = ["pyarrow>=17", "duckdb>=1.1"]
+
+[project.scripts]
+cross-build = "cross_eval.build:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cross_eval"]

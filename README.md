@@ -67,6 +67,7 @@ schema/tier-<n>.json                     every table, column, type and row count
 questions/questions.jsonl                one question per line
 MATCHING.md                              how answers are scored
 DATASHEET.md                             how the data was made, and its limits
+generator/                               the code that builds all of the above
 ```
 
 Query it directly with DuckDB:
@@ -126,4 +127,4 @@ Score the answer a person would read, not the SQL behind it. An answer that is r
 
 ## License
 
-[CC BY 4.0](LICENSE). Use it for anything, including commercially, and credit "CROSS dataset by Synopsis (getsynopsis.ai)".
+The data and questions are [CC BY 4.0](LICENSE): use them for anything, including commercially, and credit "CROSS dataset by Synopsis (getsynopsis.ai)". The generator code in `generator/` is [Apache-2.0](generator/LICENSE).

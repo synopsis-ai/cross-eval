@@ -37,7 +37,7 @@ Core tables (identical in every tier):
 - **Schema shapes** follow the vendors' public API documentation and common connector conventions. Cuewright's schema was designed from the business process and isn't modeled on any real product.
 - **Fully synthetic.** No real person, company or customer record was used. Names are drawn from generic first- and last-name lists and invented company stems; any resemblance to a real organization is coincidental. Every email address and website uses the reserved `.example` domain, so none can belong to a real person or company.
 
-The generator isn't public. Each release ships complete, and its `generator_version` is recorded on every question.
+The generator is in [`generator/`](generator/). Rebuilding with the same seed and lockfile reproduces a release byte for byte, and its `generator_version` is recorded on every question.
 
 ## Deliberate messiness
 

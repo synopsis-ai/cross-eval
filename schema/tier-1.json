@@ -1,0 +1,6710 @@
+{
+ "tables": [
+  {
+   "system": "adp",
+   "table": "adp_pay_statement_earnings",
+   "role": "core",
+   "rows": 10001,
+   "columns": [
+    {
+     "name": "pay_statement_id",
+     "type": "str"
+    },
+    {
+     "name": "line_number",
+     "type": "int"
+    },
+    {
+     "name": "earning_code",
+     "type": "str"
+    },
+    {
+     "name": "earning_name",
+     "type": "str"
+    },
+    {
+     "name": "hours",
+     "type": "float"
+    },
+    {
+     "name": "rate",
+     "type": "float"
+    },
+    {
+     "name": "amount",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "adp",
+   "table": "adp_pay_statements",
+   "role": "core",
+   "rows": 9197,
+   "columns": [
+    {
+     "name": "pay_statement_id",
+     "type": "str"
+    },
+    {
+     "name": "associate_oid",
+     "type": "str"
+    },
+    {
+     "name": "pay_date",
+     "type": "date"
+    },
+    {
+     "name": "pay_period_start_date",
+     "type": "date"
+    },
+    {
+     "name": "pay_period_end_date",
+     "type": "date"
+    },
+    {
+     "name": "gross_pay_amount",
+     "type": "float"
+    },
+    {
+     "name": "net_pay_amount",
+     "type": "float"
+    },
+    {
+     "name": "total_hours",
+     "type": "float"
+    },
+    {
+     "name": "check_number",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "adp",
+   "table": "adp_time_off_balances_audit",
+   "role": "padding",
+   "rows": 64,
+   "columns": [
+    {
+     "name": "associate_oid",
+     "type": "str"
+    },
+    {
+     "name": "item_id",
+     "type": "str"
+    },
+    {
+     "name": "effective_date",
+     "type": "date"
+    },
+    {
+     "name": "code_value",
+     "type": "str"
+    },
+    {
+     "name": "short_name",
+     "type": "str"
+    },
+    {
+     "name": "contact_color",
+     "type": "float"
+    },
+    {
+     "name": "board_priority",
+     "type": "float"
+    },
+    {
+     "name": "marketing_access",
+     "type": "bool"
+    },
+    {
+     "name": "board_type",
+     "type": "float"
+    },
+    {
+     "name": "advisory_optout",
+     "type": "str"
+    },
+    {
+     "name": "vat_timezone",
+     "type": "date"
+    },
+    {
+     "name": "badge_nickname",
+     "type": "date"
+    },
+    {
+     "name": "owner_health",
+     "type": "str"
+    },
+    {
+     "name": "channel_milestone",
+     "type": "bool"
+    },
+    {
+     "name": "owner_legacy",
+     "type": "float"
+    },
+    {
+     "name": "exempt_sla",
+     "type": "int"
+    },
+    {
+     "name": "timezone_reference",
+     "type": "bool"
+    },
+    {
+     "name": "partner_health",
+     "type": "float"
+    },
+    {
+     "name": "manager_mfa",
+     "type": "str"
+    },
+    {
+     "name": "ticker_partner",
+     "type": "str"
+    },
+    {
+     "name": "insurance_consent",
+     "type": "date"
+    },
+    {
+     "name": "anniversary_font",
+     "type": "bool"
+    },
+    {
+     "name": "timezone_nickname",
+     "type": "str"
+    },
+    {
+     "name": "linkedin_sic",
+     "type": "str"
+    },
+    {
+     "name": "font_persona",
+     "type": "str"
+    },
+    {
+     "name": "survey_anniversary",
+     "type": "str"
+    },
+    {
+     "name": "interest_review",
+     "type": "bool"
+    },
+    {
+     "name": "signature_review",
+     "type": "int"
+    },
+    {
+     "name": "site_font",
+     "type": "int"
+    },
+    {
+     "name": "language_category",
+     "type": "str"
+    },
+    {
+     "name": "priority_domain",
+     "type": "str"
+    },
+    {
+     "name": "onboarding_domain",
+     "type": "bool"
+    },
+    {
+     "name": "health_rating",
+     "type": "str"
+    },
+    {
+     "name": "migration_sso",
+     "type": "str"
+    },
+    {
+     "name": "status_type",
+     "type": "str"
+    },
+    {
+     "name": "manager_exempt",
+     "type": "date"
+    },
+    {
+     "name": "risk_color",
+     "type": "bool"
+    },
+    {
+     "name": "access_sync",
+     "type": "int"
+    },
+    {
+     "name": "anniversary_consent",
+     "type": "date"
+    },
+    {
+     "name": "onboarding_flag",
+     "type": "date"
+    },
+    {
+     "name": "signature_vendor",
+     "type": "float"
+    },
+    {
+     "name": "score_nickname",
+     "type": "str"
+    },
+    {
+     "name": "priority_steering",
+     "type": "float"
+    },
+    {
+     "name": "owner_group",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "adp",
+   "table": "adp_work_assignments",
+   "role": "core",
+   "rows": 331,
+   "columns": [
+    {
+     "name": "assignment_id",
+     "type": "str"
+    },
+    {
+     "name": "associate_oid",
+     "type": "str"
+    },
+    {
+     "name": "effective_date",
+     "type": "date"
+    },
+    {
+     "name": "job_title",
+     "type": "str"
+    },
+    {
+     "name": "hourly_rate_amount",
+     "type": "float"
+    },
+    {
+     "name": "annual_rate_amount",
+     "type": "float"
+    },
+    {
+     "name": "currency_code",
+     "type": "str"
+    },
+    {
+     "name": "primary_indicator",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "system": "adp",
+   "table": "adp_workers",
+   "role": "core",
+   "rows": 147,
+   "columns": [
+    {
+     "name": "associate_oid",
+     "type": "str"
+    },
+    {
+     "name": "worker_id",
+     "type": "str"
+    },
+    {
+     "name": "legal_given_name",
+     "type": "str"
+    },
+    {
+     "name": "legal_family_name",
+     "type": "str"
+    },
+    {
+     "name": "preferred_given_name",
+     "type": "str"
+    },
+    {
+     "name": "work_email",
+     "type": "str"
+    },
+    {
+     "name": "hire_date",
+     "type": "str"
+    },
+    {
+     "name": "termination_date",
+     "type": "str"
+    },
+    {
+     "name": "worker_status",
+     "type": "str"
+    },
+    {
+     "name": "pay_type",
+     "type": "str"
+    },
+    {
+     "name": "flsa_status",
+     "type": "str"
+    },
+    {
+     "name": "pay_frequency",
+     "type": "str"
+    },
+    {
+     "name": "home_work_location_code",
+     "type": "str"
+    },
+    {
+     "name": "home_work_location_name",
+     "type": "str"
+    },
+    {
+     "name": "job_title",
+     "type": "str"
+    },
+    {
+     "name": "department_name",
+     "type": "str"
+    },
+    {
+     "name": "addresses",
+     "type": "str"
+    },
+    {
+     "name": "custom_referral_notes",
+     "type": "str"
+    },
+    {
+     "name": "custom_legacy_qualification",
+     "type": "str"
+    },
+    {
+     "name": "custom_status_health",
+     "type": "str"
+    },
+    {
+     "name": "custom_site_milestone",
+     "type": "float"
+    },
+    {
+     "name": "custom_level_color",
+     "type": "bool"
+    },
+    {
+     "name": "custom_preferred_detail",
+     "type": "str"
+    },
+    {
+     "name": "custom_domain_type",
+     "type": "bool"
+    },
+    {
+     "name": "custom_external_template",
+     "type": "int"
+    },
+    {
+     "name": "custom_hobby_manager",
+     "type": "str"
+    },
+    {
+     "name": "custom_sustainability_assistant",
+     "type": "str"
+    },
+    {
+     "name": "custom_vat_persona",
+     "type": "bool"
+    },
+    {
+     "name": "custom_access_reference",
+     "type": "str"
+    },
+    {
+     "name": "custom_legacy_flag",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_change_orders",
+   "role": "core",
+   "rows": 323,
+   "columns": [
+    {
+     "name": "co_id",
+     "type": "int"
+    },
+    {
+     "name": "show_id",
+     "type": "int"
+    },
+    {
+     "name": "co_no",
+     "type": "str"
+    },
+    {
+     "name": "co_desc",
+     "type": "str"
+    },
+    {
+     "name": "co_amt",
+     "type": "str"
+    },
+    {
+     "name": "approved_dt",
+     "type": "str"
+    },
+    {
+     "name": "void_flg",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_clients",
+   "role": "core",
+   "rows": 225,
+   "columns": [
+    {
+     "name": "clnt_id",
+     "type": "int"
+    },
+    {
+     "name": "clnt_nm",
+     "type": "str"
+    },
+    {
+     "name": "bill_nm",
+     "type": "str"
+    },
+    {
+     "name": "crm_acct_ref",
+     "type": "str"
+    },
+    {
+     "name": "clnt_since",
+     "type": "str"
+    },
+    {
+     "name": "actv_flg",
+     "type": "str"
+    },
+    {
+     "name": "hq_city",
+     "type": "str"
+    },
+    {
+     "name": "hq_st",
+     "type": "str"
+    },
+    {
+     "name": "terms_cd",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_001",
+     "type": "float"
+    },
+    {
+     "name": "usr_fld_002",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_003",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_004",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_005",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_006",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_crew",
+   "role": "core",
+   "rows": 177,
+   "columns": [
+    {
+     "name": "crew_id",
+     "type": "int"
+    },
+    {
+     "name": "emp_no",
+     "type": "str"
+    },
+    {
+     "name": "first_nm",
+     "type": "str"
+    },
+    {
+     "name": "last_nm",
+     "type": "str"
+    },
+    {
+     "name": "primary_role_cd",
+     "type": "str"
+    },
+    {
+     "name": "home_office_cd",
+     "type": "str"
+    },
+    {
+     "name": "crew_type",
+     "type": "str"
+    },
+    {
+     "name": "email",
+     "type": "str"
+    },
+    {
+     "name": "phone",
+     "type": "str"
+    },
+    {
+     "name": "actv_flg",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_crew_calls",
+   "role": "core",
+   "rows": 13457,
+   "columns": [
+    {
+     "name": "call_id",
+     "type": "int"
+    },
+    {
+     "name": "show_id",
+     "type": "int"
+    },
+    {
+     "name": "crew_id",
+     "type": "int"
+    },
+    {
+     "name": "role_cd",
+     "type": "str"
+    },
+    {
+     "name": "work_dt",
+     "type": "str"
+    },
+    {
+     "name": "call_ts",
+     "type": "str"
+    },
+    {
+     "name": "wrap_ts",
+     "type": "str"
+    },
+    {
+     "name": "hrs_worked",
+     "type": "float"
+    },
+    {
+     "name": "meal_brk_min",
+     "type": "int"
+    },
+    {
+     "name": "travel_flg",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_gear_assets",
+   "role": "core",
+   "rows": 728,
+   "columns": [
+    {
+     "name": "asset_tag",
+     "type": "str"
+    },
+    {
+     "name": "item_cd",
+     "type": "str"
+    },
+    {
+     "name": "serial_no",
+     "type": "str"
+    },
+    {
+     "name": "purch_dt",
+     "type": "str"
+    },
+    {
+     "name": "home_office_cd",
+     "type": "str"
+    },
+    {
+     "name": "asset_status",
+     "type": "str"
+    },
+    {
+     "name": "retired_dt",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_gear_items",
+   "role": "core",
+   "rows": 47,
+   "columns": [
+    {
+     "name": "item_cd",
+     "type": "str"
+    },
+    {
+     "name": "item_desc",
+     "type": "str"
+    },
+    {
+     "name": "dept_cd",
+     "type": "str"
+    },
+    {
+     "name": "daily_rate",
+     "type": "float"
+    },
+    {
+     "name": "repl_cost",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_pull_lines",
+   "role": "core",
+   "rows": 4533,
+   "columns": [
+    {
+     "name": "pull_id",
+     "type": "int"
+    },
+    {
+     "name": "show_id",
+     "type": "int"
+    },
+    {
+     "name": "item_cd",
+     "type": "str"
+    },
+    {
+     "name": "qty",
+     "type": "int"
+    },
+    {
+     "name": "out_dt",
+     "type": "str"
+    },
+    {
+     "name": "ret_dt",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_quote_lines",
+   "role": "core",
+   "rows": 12126,
+   "columns": [
+    {
+     "name": "quote_line_id",
+     "type": "int"
+    },
+    {
+     "name": "quote_id",
+     "type": "int"
+    },
+    {
+     "name": "line_no",
+     "type": "int"
+    },
+    {
+     "name": "dept_cd",
+     "type": "str"
+    },
+    {
+     "name": "item_cd",
+     "type": "str"
+    },
+    {
+     "name": "line_desc",
+     "type": "str"
+    },
+    {
+     "name": "qty",
+     "type": "int"
+    },
+    {
+     "name": "days",
+     "type": "int"
+    },
+    {
+     "name": "unit_price",
+     "type": "float"
+    },
+    {
+     "name": "ext_price",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_quotes",
+   "role": "core",
+   "rows": 859,
+   "columns": [
+    {
+     "name": "quote_id",
+     "type": "int"
+    },
+    {
+     "name": "show_id",
+     "type": "int"
+    },
+    {
+     "name": "version_no",
+     "type": "int"
+    },
+    {
+     "name": "is_final",
+     "type": "str"
+    },
+    {
+     "name": "quote_status",
+     "type": "str"
+    },
+    {
+     "name": "disc_pct",
+     "type": "float"
+    },
+    {
+     "name": "issued_dt",
+     "type": "str"
+    },
+    {
+     "name": "prepared_by",
+     "type": "int"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_repair_tickets",
+   "role": "core",
+   "rows": 118,
+   "columns": [
+    {
+     "name": "tkt_id",
+     "type": "int"
+    },
+    {
+     "name": "asset_tag",
+     "type": "str"
+    },
+    {
+     "name": "show_id",
+     "type": "int"
+    },
+    {
+     "name": "opened_dt",
+     "type": "str"
+    },
+    {
+     "name": "closed_dt",
+     "type": "str"
+    },
+    {
+     "name": "tkt_status",
+     "type": "str"
+    },
+    {
+     "name": "issue_desc",
+     "type": "str"
+    },
+    {
+     "name": "repair_cost",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_shows",
+   "role": "core",
+   "rows": 471,
+   "columns": [
+    {
+     "name": "show_id",
+     "type": "int"
+    },
+    {
+     "name": "show_no",
+     "type": "str"
+    },
+    {
+     "name": "show_nm",
+     "type": "str"
+    },
+    {
+     "name": "clnt_id",
+     "type": "int"
+    },
+    {
+     "name": "venue_id",
+     "type": "int"
+    },
+    {
+     "name": "office_cd",
+     "type": "str"
+    },
+    {
+     "name": "producer_id",
+     "type": "int"
+    },
+    {
+     "name": "evt_type_cd",
+     "type": "str"
+    },
+    {
+     "name": "status_cd",
+     "type": "str"
+    },
+    {
+     "name": "booked_dt",
+     "type": "str"
+    },
+    {
+     "name": "ld_in_dt",
+     "type": "str"
+    },
+    {
+     "name": "show_start_dt",
+     "type": "str"
+    },
+    {
+     "name": "show_end_dt",
+     "type": "str"
+    },
+    {
+     "name": "strike_dt",
+     "type": "str"
+    },
+    {
+     "name": "cncl_dt",
+     "type": "str"
+    },
+    {
+     "name": "crm_opp_ref",
+     "type": "str"
+    },
+    {
+     "name": "curr_cd",
+     "type": "str"
+    },
+    {
+     "name": "attendee_est",
+     "type": "int"
+    },
+    {
+     "name": "custom_fields",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_001",
+     "type": "int"
+    },
+    {
+     "name": "usr_fld_002",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_003",
+     "type": "date"
+    },
+    {
+     "name": "usr_fld_004",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_005",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_006",
+     "type": "date"
+    },
+    {
+     "name": "usr_fld_007",
+     "type": "date"
+    },
+    {
+     "name": "usr_fld_008",
+     "type": "str"
+    },
+    {
+     "name": "usr_fld_009",
+     "type": "float"
+    },
+    {
+     "name": "usr_fld_010",
+     "type": "date"
+    },
+    {
+     "name": "usr_fld_011",
+     "type": "float"
+    },
+    {
+     "name": "usr_fld_012",
+     "type": "float"
+    },
+    {
+     "name": "usr_fld_013",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_users",
+   "role": "core",
+   "rows": 22,
+   "columns": [
+    {
+     "name": "user_id",
+     "type": "int"
+    },
+    {
+     "name": "emp_no",
+     "type": "str"
+    },
+    {
+     "name": "full_nm",
+     "type": "str"
+    },
+    {
+     "name": "role_cd",
+     "type": "str"
+    },
+    {
+     "name": "office_cd",
+     "type": "str"
+    },
+    {
+     "name": "email",
+     "type": "str"
+    },
+    {
+     "name": "actv_flg",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_venues",
+   "role": "core",
+   "rows": 96,
+   "columns": [
+    {
+     "name": "venue_id",
+     "type": "int"
+    },
+    {
+     "name": "venue_nm",
+     "type": "str"
+    },
+    {
+     "name": "venue_type",
+     "type": "str"
+    },
+    {
+     "name": "city",
+     "type": "str"
+    },
+    {
+     "name": "st_prov",
+     "type": "str"
+    },
+    {
+     "name": "country_cd",
+     "type": "str"
+    },
+    {
+     "name": "details",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_xcasex",
+   "role": "padding",
+   "rows": 120,
+   "columns": [
+    {
+     "name": "xcas_id",
+     "type": "int"
+    },
+    {
+     "name": "xcas_cd",
+     "type": "str"
+    },
+    {
+     "name": "xcas_desc",
+     "type": "str"
+    },
+    {
+     "name": "upd_ts",
+     "type": "str"
+    },
+    {
+     "name": "upd_usr",
+     "type": "int"
+    },
+    {
+     "name": "xcas_preferred1",
+     "type": "bool"
+    },
+    {
+     "name": "xcas_locale2",
+     "type": "int"
+    },
+    {
+     "name": "xcas_interest3",
+     "type": "int"
+    },
+    {
+     "name": "xcas_code4",
+     "type": "str"
+    },
+    {
+     "name": "xcas_access5",
+     "type": "bool"
+    },
+    {
+     "name": "xcas_batch6",
+     "type": "str"
+    },
+    {
+     "name": "xcas_theme7",
+     "type": "int"
+    },
+    {
+     "name": "xcas_newsletter8",
+     "type": "str"
+    },
+    {
+     "name": "xcas_health9",
+     "type": "date"
+    },
+    {
+     "name": "xcas_survey10",
+     "type": "str"
+    },
+    {
+     "name": "xcas_reference11",
+     "type": "str"
+    },
+    {
+     "name": "xcas_renewal12",
+     "type": "str"
+    },
+    {
+     "name": "xcas_region13",
+     "type": "int"
+    },
+    {
+     "name": "xcas_exempt14",
+     "type": "str"
+    },
+    {
+     "name": "xcas_export15",
+     "type": "bool"
+    },
+    {
+     "name": "xcas_committee16",
+     "type": "date"
+    },
+    {
+     "name": "xcas_required17",
+     "type": "str"
+    },
+    {
+     "name": "xcas_template18",
+     "type": "str"
+    },
+    {
+     "name": "xcas_survey19",
+     "type": "str"
+    },
+    {
+     "name": "xcas_sustainability20",
+     "type": "str"
+    },
+    {
+     "name": "xcas_owner21",
+     "type": "float"
+    },
+    {
+     "name": "xcas_tier22",
+     "type": "str"
+    },
+    {
+     "name": "xcas_ticker23",
+     "type": "float"
+    },
+    {
+     "name": "xcas_website24",
+     "type": "str"
+    },
+    {
+     "name": "xcas_locale25",
+     "type": "bool"
+    },
+    {
+     "name": "xcas_approval26",
+     "type": "float"
+    },
+    {
+     "name": "xcas_import27",
+     "type": "str"
+    },
+    {
+     "name": "xcas_linkedin28",
+     "type": "str"
+    },
+    {
+     "name": "xcas_sync29",
+     "type": "int"
+    },
+    {
+     "name": "xcas_manager30",
+     "type": "str"
+    },
+    {
+     "name": "xcas_type31",
+     "type": "str"
+    },
+    {
+     "name": "xcas_status32",
+     "type": "int"
+    },
+    {
+     "name": "xcas_coi33",
+     "type": "float"
+    },
+    {
+     "name": "xcas_code34",
+     "type": "str"
+    },
+    {
+     "name": "xcas_team35",
+     "type": "int"
+    },
+    {
+     "name": "xcas_portal36",
+     "type": "date"
+    },
+    {
+     "name": "xcas_coi37",
+     "type": "str"
+    },
+    {
+     "name": "xcas_notes38",
+     "type": "float"
+    },
+    {
+     "name": "xcas_routing39",
+     "type": "str"
+    },
+    {
+     "name": "xcas_ticker40",
+     "type": "str"
+    },
+    {
+     "name": "xcas_portal41",
+     "type": "int"
+    },
+    {
+     "name": "xcas_procurement42",
+     "type": "str"
+    },
+    {
+     "name": "xcas_diversity43",
+     "type": "str"
+    },
+    {
+     "name": "xcas_language44",
+     "type": "str"
+    },
+    {
+     "name": "xcas_migration45",
+     "type": "str"
+    },
+    {
+     "name": "xcas_flag46",
+     "type": "date"
+    },
+    {
+     "name": "xcas_milestone47",
+     "type": "int"
+    },
+    {
+     "name": "xcas_brand48",
+     "type": "date"
+    },
+    {
+     "name": "xcas_brand49",
+     "type": "str"
+    },
+    {
+     "name": "xcas_integration50",
+     "type": "int"
+    },
+    {
+     "name": "xcas_birthday51",
+     "type": "str"
+    },
+    {
+     "name": "xcas_risk52",
+     "type": "str"
+    },
+    {
+     "name": "xcas_sla53",
+     "type": "date"
+    },
+    {
+     "name": "xcas_portal54",
+     "type": "str"
+    },
+    {
+     "name": "xcas_security55",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_xglmap",
+   "role": "core",
+   "rows": 7,
+   "columns": [
+    {
+     "name": "dept_cd",
+     "type": "str"
+    },
+    {
+     "name": "gl_acct",
+     "type": "str"
+    },
+    {
+     "name": "gl_desc",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_xntfya",
+   "role": "padding",
+   "rows": 97,
+   "columns": [
+    {
+     "name": "xntf_id",
+     "type": "int"
+    },
+    {
+     "name": "xntf_cd",
+     "type": "str"
+    },
+    {
+     "name": "xntf_desc",
+     "type": "str"
+    },
+    {
+     "name": "upd_ts",
+     "type": "str"
+    },
+    {
+     "name": "upd_usr",
+     "type": "int"
+    },
+    {
+     "name": "xntf_survey1",
+     "type": "float"
+    },
+    {
+     "name": "xntf_milestone2",
+     "type": "date"
+    },
+    {
+     "name": "xntf_unit3",
+     "type": "str"
+    },
+    {
+     "name": "xntf_integration4",
+     "type": "bool"
+    },
+    {
+     "name": "xntf_sso5",
+     "type": "bool"
+    },
+    {
+     "name": "xntf_manager6",
+     "type": "date"
+    },
+    {
+     "name": "xntf_source7",
+     "type": "str"
+    },
+    {
+     "name": "xntf_rating8",
+     "type": "float"
+    },
+    {
+     "name": "xntf_exempt9",
+     "type": "date"
+    },
+    {
+     "name": "xntf_category10",
+     "type": "str"
+    },
+    {
+     "name": "xntf_linkedin11",
+     "type": "str"
+    },
+    {
+     "name": "xntf_export12",
+     "type": "date"
+    },
+    {
+     "name": "xntf_rating13",
+     "type": "str"
+    },
+    {
+     "name": "xntf_accessibility14",
+     "type": "float"
+    },
+    {
+     "name": "xntf_fiscal15",
+     "type": "bool"
+    },
+    {
+     "name": "xntf_team16",
+     "type": "date"
+    },
+    {
+     "name": "xntf_persona17",
+     "type": "int"
+    },
+    {
+     "name": "xntf_alma18",
+     "type": "str"
+    },
+    {
+     "name": "xntf_survey19",
+     "type": "float"
+    },
+    {
+     "name": "xntf_font20",
+     "type": "bool"
+    },
+    {
+     "name": "xntf_localization21",
+     "type": "int"
+    },
+    {
+     "name": "xntf_parent22",
+     "type": "int"
+    },
+    {
+     "name": "xntf_parking23",
+     "type": "str"
+    },
+    {
+     "name": "xntf_site24",
+     "type": "str"
+    },
+    {
+     "name": "xntf_w925",
+     "type": "str"
+    },
+    {
+     "name": "xntf_dialect26",
+     "type": "float"
+    },
+    {
+     "name": "xntf_migration27",
+     "type": "float"
+    },
+    {
+     "name": "xntf_ticker28",
+     "type": "date"
+    },
+    {
+     "name": "xntf_diversity29",
+     "type": "str"
+    },
+    {
+     "name": "xntf_partner30",
+     "type": "str"
+    },
+    {
+     "name": "xntf_manager31",
+     "type": "date"
+    },
+    {
+     "name": "xntf_newsletter32",
+     "type": "str"
+    },
+    {
+     "name": "xntf_import33",
+     "type": "str"
+    },
+    {
+     "name": "xntf_hold34",
+     "type": "str"
+    },
+    {
+     "name": "xntf_external35",
+     "type": "int"
+    },
+    {
+     "name": "xntf_headcount36",
+     "type": "int"
+    },
+    {
+     "name": "xntf_locale37",
+     "type": "float"
+    },
+    {
+     "name": "xntf_sustainability38",
+     "type": "str"
+    },
+    {
+     "name": "xntf_coi39",
+     "type": "int"
+    },
+    {
+     "name": "xntf_localization40",
+     "type": "str"
+    },
+    {
+     "name": "xntf_survey41",
+     "type": "str"
+    },
+    {
+     "name": "xntf_color42",
+     "type": "str"
+    },
+    {
+     "name": "xntf_notes43",
+     "type": "date"
+    },
+    {
+     "name": "xntf_import44",
+     "type": "str"
+    },
+    {
+     "name": "xntf_anniversary45",
+     "type": "str"
+    },
+    {
+     "name": "xntf_manager46",
+     "type": "str"
+    },
+    {
+     "name": "xntf_vendor47",
+     "type": "float"
+    },
+    {
+     "name": "xntf_assistant48",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_xperma",
+   "role": "padding",
+   "rows": 52,
+   "columns": [
+    {
+     "name": "xper_id",
+     "type": "int"
+    },
+    {
+     "name": "xper_cd",
+     "type": "str"
+    },
+    {
+     "name": "xper_desc",
+     "type": "str"
+    },
+    {
+     "name": "upd_ts",
+     "type": "str"
+    },
+    {
+     "name": "upd_usr",
+     "type": "int"
+    },
+    {
+     "name": "xper_manager1",
+     "type": "str"
+    },
+    {
+     "name": "xper_anniversary2",
+     "type": "int"
+    },
+    {
+     "name": "xper_nps3",
+     "type": "str"
+    },
+    {
+     "name": "xper_contact4",
+     "type": "int"
+    },
+    {
+     "name": "xper_level5",
+     "type": "str"
+    },
+    {
+     "name": "xper_sustainability6",
+     "type": "str"
+    },
+    {
+     "name": "xper_marketing7",
+     "type": "str"
+    },
+    {
+     "name": "xper_certificate8",
+     "type": "str"
+    },
+    {
+     "name": "xper_duns9",
+     "type": "str"
+    },
+    {
+     "name": "xper_audit10",
+     "type": "str"
+    },
+    {
+     "name": "xper_qualification11",
+     "type": "str"
+    },
+    {
+     "name": "xper_group12",
+     "type": "int"
+    },
+    {
+     "name": "xper_vat13",
+     "type": "str"
+    },
+    {
+     "name": "xper_sso14",
+     "type": "str"
+    },
+    {
+     "name": "xper_routing15",
+     "type": "bool"
+    },
+    {
+     "name": "xper_macro16",
+     "type": "bool"
+    },
+    {
+     "name": "xper_parent17",
+     "type": "str"
+    },
+    {
+     "name": "xper_advisory18",
+     "type": "bool"
+    },
+    {
+     "name": "xper_unit19",
+     "type": "str"
+    },
+    {
+     "name": "xper_diversity20",
+     "type": "float"
+    },
+    {
+     "name": "xper_timezone21",
+     "type": "int"
+    },
+    {
+     "name": "xper_accessibility22",
+     "type": "str"
+    },
+    {
+     "name": "xper_notes23",
+     "type": "bool"
+    },
+    {
+     "name": "xper_import24",
+     "type": "str"
+    },
+    {
+     "name": "xper_duns25",
+     "type": "int"
+    },
+    {
+     "name": "xper_mater26",
+     "type": "str"
+    },
+    {
+     "name": "xper_region27",
+     "type": "date"
+    },
+    {
+     "name": "xper_partner28",
+     "type": "str"
+    },
+    {
+     "name": "xper_legacy29",
+     "type": "date"
+    },
+    {
+     "name": "xper_w930",
+     "type": "str"
+    },
+    {
+     "name": "xper_team31",
+     "type": "str"
+    },
+    {
+     "name": "xper_hold32",
+     "type": "str"
+    },
+    {
+     "name": "xper_migration33",
+     "type": "bool"
+    },
+    {
+     "name": "xper_portal34",
+     "type": "date"
+    },
+    {
+     "name": "xper_tier35",
+     "type": "str"
+    },
+    {
+     "name": "xper_color36",
+     "type": "str"
+    },
+    {
+     "name": "xper_portal37",
+     "type": "str"
+    },
+    {
+     "name": "xper_certificate38",
+     "type": "str"
+    },
+    {
+     "name": "xper_site39",
+     "type": "date"
+    },
+    {
+     "name": "xper_division40",
+     "type": "bool"
+    },
+    {
+     "name": "xper_board41",
+     "type": "date"
+    },
+    {
+     "name": "xper_renewal42",
+     "type": "str"
+    },
+    {
+     "name": "xper_locale43",
+     "type": "float"
+    },
+    {
+     "name": "xper_site44",
+     "type": "str"
+    },
+    {
+     "name": "xper_migration45",
+     "type": "int"
+    },
+    {
+     "name": "xper_channel46",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_xpermh",
+   "role": "padding",
+   "rows": 35,
+   "columns": [
+    {
+     "name": "xper_id",
+     "type": "int"
+    },
+    {
+     "name": "xper_cd",
+     "type": "str"
+    },
+    {
+     "name": "xper_desc",
+     "type": "str"
+    },
+    {
+     "name": "upd_ts",
+     "type": "str"
+    },
+    {
+     "name": "upd_usr",
+     "type": "int"
+    },
+    {
+     "name": "xper_qualification1",
+     "type": "str"
+    },
+    {
+     "name": "xper_accessibility2",
+     "type": "bool"
+    },
+    {
+     "name": "xper_brand3",
+     "type": "str"
+    },
+    {
+     "name": "xper_approval4",
+     "type": "str"
+    },
+    {
+     "name": "xper_diversity5",
+     "type": "int"
+    },
+    {
+     "name": "xper_onboarding6",
+     "type": "int"
+    },
+    {
+     "name": "xper_fiscal7",
+     "type": "float"
+    },
+    {
+     "name": "xper_audit8",
+     "type": "date"
+    },
+    {
+     "name": "xper_diversity9",
+     "type": "str"
+    },
+    {
+     "name": "xper_contact10",
+     "type": "str"
+    },
+    {
+     "name": "xper_naics11",
+     "type": "str"
+    },
+    {
+     "name": "xper_headcount12",
+     "type": "str"
+    },
+    {
+     "name": "xper_division13",
+     "type": "date"
+    },
+    {
+     "name": "xper_sic14",
+     "type": "date"
+    },
+    {
+     "name": "xper_source15",
+     "type": "str"
+    },
+    {
+     "name": "xper_legacy16",
+     "type": "float"
+    },
+    {
+     "name": "xper_pronoun17",
+     "type": "str"
+    },
+    {
+     "name": "xper_steering18",
+     "type": "str"
+    },
+    {
+     "name": "xper_escalation19",
+     "type": "int"
+    },
+    {
+     "name": "xper_anniversary20",
+     "type": "date"
+    },
+    {
+     "name": "xper_procurement21",
+     "type": "bool"
+    },
+    {
+     "name": "xper_naics22",
+     "type": "int"
+    },
+    {
+     "name": "xper_mater23",
+     "type": "str"
+    },
+    {
+     "name": "xper_coi24",
+     "type": "float"
+    },
+    {
+     "name": "xper_linkedin25",
+     "type": "str"
+    },
+    {
+     "name": "xper_accessibility26",
+     "type": "bool"
+    },
+    {
+     "name": "xper_sso27",
+     "type": "bool"
+    },
+    {
+     "name": "xper_logo28",
+     "type": "str"
+    },
+    {
+     "name": "xper_import29",
+     "type": "float"
+    },
+    {
+     "name": "xper_routing30",
+     "type": "int"
+    },
+    {
+     "name": "xper_ticker31",
+     "type": "float"
+    },
+    {
+     "name": "xper_method32",
+     "type": "int"
+    },
+    {
+     "name": "xper_procurement33",
+     "type": "str"
+    },
+    {
+     "name": "xper_w934",
+     "type": "str"
+    },
+    {
+     "name": "xper_segment35",
+     "type": "date"
+    },
+    {
+     "name": "xper_qualification36",
+     "type": "str"
+    },
+    {
+     "name": "xper_badge37",
+     "type": "str"
+    },
+    {
+     "name": "xper_assistant38",
+     "type": "float"
+    },
+    {
+     "name": "xper_queue39",
+     "type": "str"
+    },
+    {
+     "name": "xper_steering40",
+     "type": "bool"
+    },
+    {
+     "name": "xper_compliance41",
+     "type": "date"
+    },
+    {
+     "name": "xper_assistant42",
+     "type": "int"
+    },
+    {
+     "name": "xper_type43",
+     "type": "str"
+    },
+    {
+     "name": "xper_batch44",
+     "type": "int"
+    },
+    {
+     "name": "xper_sustainability45",
+     "type": "str"
+    },
+    {
+     "name": "xper_region46",
+     "type": "bool"
+    },
+    {
+     "name": "xper_template47",
+     "type": "float"
+    },
+    {
+     "name": "xper_phase48",
+     "type": "int"
+    },
+    {
+     "name": "xper_milestone49",
+     "type": "str"
+    },
+    {
+     "name": "xper_project50",
+     "type": "date"
+    },
+    {
+     "name": "xper_unit52",
+     "type": "date"
+    },
+    {
+     "name": "xper_migration53",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_xpwrdb",
+   "role": "padding",
+   "rows": 82,
+   "columns": [
+    {
+     "name": "xpwr_id",
+     "type": "int"
+    },
+    {
+     "name": "xpwr_cd",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_desc",
+     "type": "str"
+    },
+    {
+     "name": "upd_ts",
+     "type": "str"
+    },
+    {
+     "name": "upd_usr",
+     "type": "int"
+    },
+    {
+     "name": "xpwr_interest1",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_consent2",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_language3",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_w94",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_team5",
+     "type": "float"
+    },
+    {
+     "name": "xpwr_phase6",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_timezone7",
+     "type": "int"
+    },
+    {
+     "name": "xpwr_segment8",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_required9",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_brand10",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_sync11",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_phase12",
+     "type": "date"
+    },
+    {
+     "name": "xpwr_marketing13",
+     "type": "float"
+    },
+    {
+     "name": "xpwr_group14",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_segment15",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_milestone16",
+     "type": "float"
+    },
+    {
+     "name": "xpwr_sync17",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_manager18",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_group19",
+     "type": "date"
+    },
+    {
+     "name": "xpwr_logo20",
+     "type": "int"
+    },
+    {
+     "name": "xpwr_qualification21",
+     "type": "int"
+    },
+    {
+     "name": "xpwr_insurance22",
+     "type": "bool"
+    },
+    {
+     "name": "xpwr_theme23",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_linkedin24",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_escalation25",
+     "type": "bool"
+    },
+    {
+     "name": "xpwr_sso26",
+     "type": "str"
+    },
+    {
+     "name": "xpwr_font27",
+     "type": "date"
+    },
+    {
+     "name": "xpwr_qualification28",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "cuewright",
+   "table": "cuewright_xrtcd",
+   "role": "core",
+   "rows": 30,
+   "columns": [
+    {
+     "name": "rt_cd",
+     "type": "str"
+    },
+    {
+     "name": "rt_desc",
+     "type": "str"
+    },
+    {
+     "name": "rt_amt",
+     "type": "float"
+    },
+    {
+     "name": "rt_unit",
+     "type": "str"
+    },
+    {
+     "name": "eff_dt",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "google_ads",
+   "table": "google_ads_ad_group",
+   "role": "core",
+   "rows": 47,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "campaign_id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "type",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "google_ads",
+   "table": "google_ads_campaign",
+   "role": "core",
+   "rows": 12,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "customer_id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "advertising_channel_type",
+     "type": "str"
+    },
+    {
+     "name": "start_date",
+     "type": "str"
+    },
+    {
+     "name": "end_date",
+     "type": "str"
+    },
+    {
+     "name": "bidding_strategy_type",
+     "type": "str"
+    },
+    {
+     "name": "campaign_budget_amount_micros",
+     "type": "int"
+    }
+   ]
+  },
+  {
+   "system": "google_ads",
+   "table": "google_ads_campaign_stats",
+   "role": "core",
+   "rows": 21474,
+   "columns": [
+    {
+     "name": "customer_id",
+     "type": "int"
+    },
+    {
+     "name": "campaign_id",
+     "type": "int"
+    },
+    {
+     "name": "segments_date",
+     "type": "date"
+    },
+    {
+     "name": "segments_device",
+     "type": "str"
+    },
+    {
+     "name": "metrics_impressions",
+     "type": "int"
+    },
+    {
+     "name": "metrics_clicks",
+     "type": "int"
+    },
+    {
+     "name": "metrics_cost_micros",
+     "type": "int"
+    },
+    {
+     "name": "metrics_conversions",
+     "type": "float"
+    },
+    {
+     "name": "metrics_conversions_value",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "google_ads",
+   "table": "google_ads_geo_target_constant_link",
+   "role": "padding",
+   "rows": 36,
+   "columns": [
+    {
+     "name": "customer_id",
+     "type": "int"
+    },
+    {
+     "name": "resource_name",
+     "type": "str"
+    },
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "accessibility_onboarding",
+     "type": "int"
+    },
+    {
+     "name": "channel_escalation",
+     "type": "date"
+    },
+    {
+     "name": "coi_access",
+     "type": "date"
+    },
+    {
+     "name": "sync_retention",
+     "type": "str"
+    },
+    {
+     "name": "routing_domain",
+     "type": "bool"
+    },
+    {
+     "name": "office_legacy",
+     "type": "int"
+    },
+    {
+     "name": "health_onboarding",
+     "type": "str"
+    },
+    {
+     "name": "feedback_marketing",
+     "type": "int"
+    },
+    {
+     "name": "method_level",
+     "type": "str"
+    },
+    {
+     "name": "legacy_portal",
+     "type": "float"
+    },
+    {
+     "name": "timezone_tier",
+     "type": "str"
+    },
+    {
+     "name": "fiscal_language",
+     "type": "bool"
+    },
+    {
+     "name": "w9_security",
+     "type": "date"
+    },
+    {
+     "name": "sustainability_ticker",
+     "type": "float"
+    },
+    {
+     "name": "site_localization",
+     "type": "int"
+    },
+    {
+     "name": "milestone_priority",
+     "type": "str"
+    },
+    {
+     "name": "detail_timezone",
+     "type": "str"
+    },
+    {
+     "name": "timezone_manager",
+     "type": "str"
+    },
+    {
+     "name": "compliance_status",
+     "type": "bool"
+    },
+    {
+     "name": "exempt_referral",
+     "type": "str"
+    },
+    {
+     "name": "integration_assistant",
+     "type": "date"
+    },
+    {
+     "name": "consent_certificate",
+     "type": "str"
+    },
+    {
+     "name": "tier_marketing",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "system": "google_ads",
+   "table": "google_ads_keyword_plan_link",
+   "role": "padding",
+   "rows": 120,
+   "columns": [
+    {
+     "name": "customer_id",
+     "type": "int"
+    },
+    {
+     "name": "resource_name",
+     "type": "str"
+    },
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "parking_optout",
+     "type": "float"
+    },
+    {
+     "name": "localization_website",
+     "type": "str"
+    },
+    {
+     "name": "qualification_badge",
+     "type": "date"
+    },
+    {
+     "name": "batch_salutation",
+     "type": "float"
+    },
+    {
+     "name": "nickname_fiscal",
+     "type": "str"
+    },
+    {
+     "name": "timezone_sla",
+     "type": "bool"
+    },
+    {
+     "name": "font_insurance",
+     "type": "int"
+    },
+    {
+     "name": "macro_score",
+     "type": "float"
+    },
+    {
+     "name": "feedback_naics",
+     "type": "date"
+    },
+    {
+     "name": "pronoun_batch",
+     "type": "str"
+    },
+    {
+     "name": "sso_segment",
+     "type": "bool"
+    },
+    {
+     "name": "domain_notes",
+     "type": "int"
+    },
+    {
+     "name": "region_migration",
+     "type": "int"
+    },
+    {
+     "name": "board_territory",
+     "type": "bool"
+    },
+    {
+     "name": "project_tier",
+     "type": "str"
+    },
+    {
+     "name": "alma_fiscal",
+     "type": "str"
+    },
+    {
+     "name": "duns_headcount",
+     "type": "str"
+    },
+    {
+     "name": "w9_logo",
+     "type": "str"
+    },
+    {
+     "name": "procurement_fiscal",
+     "type": "str"
+    },
+    {
+     "name": "audit_batch",
+     "type": "str"
+    },
+    {
+     "name": "code_tier",
+     "type": "float"
+    },
+    {
+     "name": "integration_ticker",
+     "type": "str"
+    },
+    {
+     "name": "code_salutation",
+     "type": "str"
+    },
+    {
+     "name": "segment_nickname",
+     "type": "date"
+    },
+    {
+     "name": "mfa_nps",
+     "type": "str"
+    },
+    {
+     "name": "group_rating",
+     "type": "str"
+    },
+    {
+     "name": "external_group",
+     "type": "date"
+    },
+    {
+     "name": "nickname_parking",
+     "type": "str"
+    },
+    {
+     "name": "diversity_legacy",
+     "type": "str"
+    },
+    {
+     "name": "assistant_hobby",
+     "type": "str"
+    },
+    {
+     "name": "review_method",
+     "type": "int"
+    },
+    {
+     "name": "onboarding_accessibility",
+     "type": "str"
+    },
+    {
+     "name": "locale_coi",
+     "type": "date"
+    },
+    {
+     "name": "reference_headcount",
+     "type": "str"
+    },
+    {
+     "name": "site_dialect",
+     "type": "bool"
+    },
+    {
+     "name": "project_newsletter",
+     "type": "str"
+    },
+    {
+     "name": "naics_mater",
+     "type": "bool"
+    },
+    {
+     "name": "notes_sla",
+     "type": "str"
+    },
+    {
+     "name": "ticker_nps",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "google_ads",
+   "table": "google_ads_label_link",
+   "role": "padding",
+   "rows": 78,
+   "columns": [
+    {
+     "name": "customer_id",
+     "type": "int"
+    },
+    {
+     "name": "resource_name",
+     "type": "str"
+    },
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "certificate_birthday",
+     "type": "float"
+    },
+    {
+     "name": "marketing_batch",
+     "type": "float"
+    },
+    {
+     "name": "migration_hold",
+     "type": "str"
+    },
+    {
+     "name": "region_coi",
+     "type": "str"
+    },
+    {
+     "name": "badge_escalation",
+     "type": "bool"
+    },
+    {
+     "name": "nickname_salutation",
+     "type": "float"
+    },
+    {
+     "name": "hold_archive",
+     "type": "str"
+    },
+    {
+     "name": "access_linkedin",
+     "type": "str"
+    },
+    {
+     "name": "project_badge",
+     "type": "str"
+    },
+    {
+     "name": "w9_migration",
+     "type": "str"
+    },
+    {
+     "name": "terms_duns",
+     "type": "str"
+    },
+    {
+     "name": "source_reference",
+     "type": "str"
+    },
+    {
+     "name": "partner_nickname",
+     "type": "int"
+    },
+    {
+     "name": "sync_portal",
+     "type": "date"
+    },
+    {
+     "name": "sso_hold",
+     "type": "float"
+    },
+    {
+     "name": "manager_website",
+     "type": "int"
+    },
+    {
+     "name": "team_duns",
+     "type": "int"
+    },
+    {
+     "name": "hobby_team",
+     "type": "float"
+    },
+    {
+     "name": "steering_vendor",
+     "type": "str"
+    },
+    {
+     "name": "security_source",
+     "type": "str"
+    },
+    {
+     "name": "segment_access",
+     "type": "str"
+    },
+    {
+     "name": "import_survey",
+     "type": "float"
+    },
+    {
+     "name": "persona_sustainability",
+     "type": "int"
+    },
+    {
+     "name": "headcount_sustainability",
+     "type": "str"
+    },
+    {
+     "name": "persona_survey",
+     "type": "str"
+    },
+    {
+     "name": "qualification_feedback",
+     "type": "float"
+    },
+    {
+     "name": "birthday_milestone",
+     "type": "date"
+    },
+    {
+     "name": "naics_segment",
+     "type": "int"
+    },
+    {
+     "name": "committee_partner",
+     "type": "bool"
+    },
+    {
+     "name": "legacy_sso",
+     "type": "date"
+    },
+    {
+     "name": "vendor_hobby",
+     "type": "bool"
+    },
+    {
+     "name": "macro_detail",
+     "type": "int"
+    },
+    {
+     "name": "assistant_referral",
+     "type": "bool"
+    },
+    {
+     "name": "category_region",
+     "type": "bool"
+    },
+    {
+     "name": "font_rating",
+     "type": "date"
+    },
+    {
+     "name": "referral_locale",
+     "type": "str"
+    },
+    {
+     "name": "group_salutation",
+     "type": "int"
+    },
+    {
+     "name": "portal_retention",
+     "type": "float"
+    },
+    {
+     "name": "anniversary_website",
+     "type": "str"
+    },
+    {
+     "name": "segment_pronoun",
+     "type": "str"
+    },
+    {
+     "name": "level_naics",
+     "type": "str"
+    },
+    {
+     "name": "hold_hobby",
+     "type": "str"
+    },
+    {
+     "name": "rating_flag",
+     "type": "str"
+    },
+    {
+     "name": "office_category",
+     "type": "date"
+    },
+    {
+     "name": "mfa_security",
+     "type": "str"
+    },
+    {
+     "name": "parking_sustainability",
+     "type": "float"
+    },
+    {
+     "name": "steering_hold",
+     "type": "float"
+    },
+    {
+     "name": "tier_linkedin",
+     "type": "str"
+    },
+    {
+     "name": "batch_diversity",
+     "type": "str"
+    },
+    {
+     "name": "batch_assistant",
+     "type": "int"
+    },
+    {
+     "name": "office_sso",
+     "type": "str"
+    },
+    {
+     "name": "nps_portal",
+     "type": "int"
+    },
+    {
+     "name": "color_qualification",
+     "type": "float"
+    },
+    {
+     "name": "font_salutation",
+     "type": "str"
+    },
+    {
+     "name": "exempt_w9",
+     "type": "int"
+    },
+    {
+     "name": "naics_onboarding",
+     "type": "str"
+    },
+    {
+     "name": "birthday_escalation",
+     "type": "str"
+    },
+    {
+     "name": "interest_notes",
+     "type": "int"
+    },
+    {
+     "name": "migration_region",
+     "type": "date"
+    },
+    {
+     "name": "font_priority",
+     "type": "bool"
+    },
+    {
+     "name": "salutation_sso",
+     "type": "float"
+    },
+    {
+     "name": "subcategory_interest",
+     "type": "bool"
+    },
+    {
+     "name": "sso_sic",
+     "type": "str"
+    },
+    {
+     "name": "detail_optout",
+     "type": "str"
+    },
+    {
+     "name": "security_batch",
+     "type": "str"
+    },
+    {
+     "name": "routing_notes",
+     "type": "float"
+    },
+    {
+     "name": "insurance_queue",
+     "type": "str"
+    },
+    {
+     "name": "channel_status",
+     "type": "float"
+    },
+    {
+     "name": "anniversary_vendor",
+     "type": "int"
+    }
+   ]
+  },
+  {
+   "system": "meta_ads",
+   "table": "meta_ads_ad_images_link",
+   "role": "padding",
+   "rows": 107,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "account_id",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "created_time",
+     "type": "str"
+    },
+    {
+     "name": "duns_type",
+     "type": "str"
+    },
+    {
+     "name": "hobby_routing",
+     "type": "str"
+    },
+    {
+     "name": "certificate_nickname",
+     "type": "date"
+    },
+    {
+     "name": "source_procurement",
+     "type": "float"
+    },
+    {
+     "name": "ticker_phase",
+     "type": "str"
+    },
+    {
+     "name": "sic_theme",
+     "type": "int"
+    },
+    {
+     "name": "flag_sso",
+     "type": "str"
+    },
+    {
+     "name": "newsletter_logo",
+     "type": "float"
+    },
+    {
+     "name": "source_priority",
+     "type": "str"
+    },
+    {
+     "name": "diversity_segment",
+     "type": "bool"
+    },
+    {
+     "name": "suffix_coi",
+     "type": "str"
+    },
+    {
+     "name": "routing_committee",
+     "type": "str"
+    },
+    {
+     "name": "assistant_certificate",
+     "type": "str"
+    },
+    {
+     "name": "domain_detail",
+     "type": "str"
+    },
+    {
+     "name": "category_project",
+     "type": "float"
+    },
+    {
+     "name": "board_risk",
+     "type": "date"
+    },
+    {
+     "name": "brand_approval",
+     "type": "float"
+    },
+    {
+     "name": "accessibility_anniversary",
+     "type": "date"
+    },
+    {
+     "name": "method_tier",
+     "type": "date"
+    }
+   ]
+  },
+  {
+   "system": "meta_ads",
+   "table": "meta_ads_ad_sets",
+   "role": "core",
+   "rows": 16,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "campaign_id",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "optimization_goal",
+     "type": "str"
+    },
+    {
+     "name": "billing_event",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "meta_ads",
+   "table": "meta_ads_ads",
+   "role": "core",
+   "rows": 32,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "adset_id",
+     "type": "str"
+    },
+    {
+     "name": "campaign_id",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "creative_id",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "meta_ads",
+   "table": "meta_ads_campaigns",
+   "role": "core",
+   "rows": 8,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "account_id",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "objective",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "created_time",
+     "type": "str"
+    },
+    {
+     "name": "start_time",
+     "type": "str"
+    },
+    {
+     "name": "stop_time",
+     "type": "str"
+    },
+    {
+     "name": "daily_budget",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "meta_ads",
+   "table": "meta_ads_insights",
+   "role": "core",
+   "rows": 17936,
+   "columns": [
+    {
+     "name": "date_start",
+     "type": "str"
+    },
+    {
+     "name": "date_stop",
+     "type": "str"
+    },
+    {
+     "name": "account_id",
+     "type": "str"
+    },
+    {
+     "name": "campaign_id",
+     "type": "str"
+    },
+    {
+     "name": "campaign_name",
+     "type": "str"
+    },
+    {
+     "name": "adset_id",
+     "type": "str"
+    },
+    {
+     "name": "ad_id",
+     "type": "str"
+    },
+    {
+     "name": "ad_name",
+     "type": "str"
+    },
+    {
+     "name": "spend",
+     "type": "str"
+    },
+    {
+     "name": "impressions",
+     "type": "str"
+    },
+    {
+     "name": "clicks",
+     "type": "str"
+    },
+    {
+     "name": "cpm",
+     "type": "str"
+    },
+    {
+     "name": "actions",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "meta_ads",
+   "table": "meta_ads_pixels_link",
+   "role": "padding",
+   "rows": 64,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "account_id",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "created_time",
+     "type": "str"
+    },
+    {
+     "name": "region_newsletter",
+     "type": "float"
+    },
+    {
+     "name": "renewal_macro",
+     "type": "int"
+    },
+    {
+     "name": "office_level",
+     "type": "bool"
+    },
+    {
+     "name": "salutation_naics",
+     "type": "bool"
+    },
+    {
+     "name": "timezone_sync",
+     "type": "date"
+    },
+    {
+     "name": "office_access",
+     "type": "str"
+    },
+    {
+     "name": "review_persona",
+     "type": "date"
+    },
+    {
+     "name": "parent_audit",
+     "type": "int"
+    },
+    {
+     "name": "priority_certificate",
+     "type": "int"
+    },
+    {
+     "name": "consent_segment",
+     "type": "int"
+    },
+    {
+     "name": "export_theme",
+     "type": "int"
+    },
+    {
+     "name": "owner_import",
+     "type": "str"
+    },
+    {
+     "name": "theme_archive",
+     "type": "str"
+    },
+    {
+     "name": "preferred_website",
+     "type": "bool"
+    },
+    {
+     "name": "sustainability_tier",
+     "type": "str"
+    },
+    {
+     "name": "legacy_audit",
+     "type": "str"
+    },
+    {
+     "name": "health_w9",
+     "type": "str"
+    },
+    {
+     "name": "team_batch",
+     "type": "date"
+    },
+    {
+     "name": "nickname_procurement",
+     "type": "date"
+    },
+    {
+     "name": "sustainability_board",
+     "type": "bool"
+    },
+    {
+     "name": "site_certificate",
+     "type": "date"
+    },
+    {
+     "name": "code_segment",
+     "type": "date"
+    },
+    {
+     "name": "headcount_marketing",
+     "type": "bool"
+    },
+    {
+     "name": "template_anniversary",
+     "type": "str"
+    },
+    {
+     "name": "rating_exempt",
+     "type": "int"
+    },
+    {
+     "name": "health_required",
+     "type": "str"
+    },
+    {
+     "name": "access_nickname",
+     "type": "int"
+    },
+    {
+     "name": "alma_rating",
+     "type": "str"
+    },
+    {
+     "name": "signature_integration",
+     "type": "date"
+    },
+    {
+     "name": "qualification_manager",
+     "type": "str"
+    },
+    {
+     "name": "retention_diversity",
+     "type": "str"
+    },
+    {
+     "name": "color_queue",
+     "type": "date"
+    },
+    {
+     "name": "pronoun_integration",
+     "type": "float"
+    },
+    {
+     "name": "language_archive",
+     "type": "str"
+    },
+    {
+     "name": "sso_naics",
+     "type": "bool"
+    },
+    {
+     "name": "anniversary_milestone",
+     "type": "int"
+    },
+    {
+     "name": "persona_vat",
+     "type": "bool"
+    },
+    {
+     "name": "onboarding_import",
+     "type": "str"
+    },
+    {
+     "name": "phase_audit",
+     "type": "str"
+    },
+    {
+     "name": "status_duns",
+     "type": "int"
+    },
+    {
+     "name": "template_board",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_account",
+   "role": "core",
+   "rows": 20,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "acctnumber",
+     "type": "str"
+    },
+    {
+     "name": "fullname",
+     "type": "str"
+    },
+    {
+     "name": "accttype",
+     "type": "str"
+    },
+    {
+     "name": "isinactive",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_accounting_period",
+   "role": "core",
+   "rows": 51,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "periodname",
+     "type": "str"
+    },
+    {
+     "name": "startdate",
+     "type": "str"
+    },
+    {
+     "name": "enddate",
+     "type": "str"
+    },
+    {
+     "name": "isquarter",
+     "type": "str"
+    },
+    {
+     "name": "isyear",
+     "type": "str"
+    },
+    {
+     "name": "closed",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_budget_category_map",
+   "role": "padding",
+   "rows": 70,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "isinactive",
+     "type": "str"
+    },
+    {
+     "name": "created",
+     "type": "str"
+    },
+    {
+     "name": "lastmodified",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_certificate_unit",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_sic_category",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_contact_mfa",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_badge_code",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_unit_mfa",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_referral_insurance",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_steering_risk",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_newsletter_notes",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_interest_signature",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_migration_channel",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_diversity_risk",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_fiscal_template",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_import_nickname",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_security_diversity",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_linkedin_method",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_reference_export",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_coi_vat",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_ticker_naics",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_parent_archive",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_group_legacy",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_dialect_required",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_access_certificate",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_nps_diversity",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_required_migration",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_import_integration",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_language_team",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_survey_linkedin",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_tier_suffix",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_group_site",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_color_reference",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_salutation_access",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_coi_theme",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_coi_archive",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_terms_project",
+     "type": "int"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_currency",
+   "role": "core",
+   "rows": 2,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "symbol",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_customer",
+   "role": "core",
+   "rows": 221,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "entityid",
+     "type": "str"
+    },
+    {
+     "name": "companyname",
+     "type": "str"
+    },
+    {
+     "name": "email",
+     "type": "str"
+    },
+    {
+     "name": "subsidiary",
+     "type": "int"
+    },
+    {
+     "name": "currency",
+     "type": "int"
+    },
+    {
+     "name": "terms",
+     "type": "str"
+    },
+    {
+     "name": "datecreated",
+     "type": "str"
+    },
+    {
+     "name": "custentity_sf_account_id",
+     "type": "str"
+    },
+    {
+     "name": "custentity_industry",
+     "type": "str"
+    },
+    {
+     "name": "isinactive",
+     "type": "str"
+    },
+    {
+     "name": "custentity_ticker_team",
+     "type": "int"
+    },
+    {
+     "name": "custentity_nickname_access",
+     "type": "int"
+    },
+    {
+     "name": "custentity_queue_steering",
+     "type": "float"
+    },
+    {
+     "name": "custentity_detail_legacy",
+     "type": "str"
+    },
+    {
+     "name": "custentity_access_score",
+     "type": "bool"
+    },
+    {
+     "name": "custentity_feedback_partner",
+     "type": "str"
+    },
+    {
+     "name": "custentity_office_preferred",
+     "type": "float"
+    },
+    {
+     "name": "custentity_referral_survey",
+     "type": "bool"
+    },
+    {
+     "name": "custentity_certificate_audit",
+     "type": "str"
+    },
+    {
+     "name": "custentity_escalation_import",
+     "type": "float"
+    },
+    {
+     "name": "custentity_domain_parent",
+     "type": "str"
+    },
+    {
+     "name": "custentity_language_priority",
+     "type": "bool"
+    },
+    {
+     "name": "custentity_level_legacy",
+     "type": "date"
+    },
+    {
+     "name": "custentity_owner_milestone",
+     "type": "float"
+    },
+    {
+     "name": "custentity_salutation_macro",
+     "type": "date"
+    },
+    {
+     "name": "custentity_integration_parking",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_customrecord_approval_rule_log",
+   "role": "padding",
+   "rows": 40,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "isinactive",
+     "type": "str"
+    },
+    {
+     "name": "created",
+     "type": "str"
+    },
+    {
+     "name": "lastmodified",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_language_font",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_sync_security",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_escalation_persona",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_notes_export",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_channel_required",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_pronoun_integration",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_feedback_type",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_region_vat",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_feedback_milestone",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_escalation_vendor",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_group_hold",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_naics_sic",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_customrecord_vendor_scorecard_log",
+   "role": "padding",
+   "rows": 115,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "isinactive",
+     "type": "str"
+    },
+    {
+     "name": "created",
+     "type": "str"
+    },
+    {
+     "name": "lastmodified",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_website_subcategory",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_pronoun_newsletter",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_score_sso",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_access_sic",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_persona_parking",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_birthday_duns",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_sustainability_sla",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_language_sla",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_procurement_fiscal",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_notes_rating",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_site_signature",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_health_escalation",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_review_access",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_theme_assistant",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_referral_division",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_newsletter_referral",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_escalation_marketing",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_newsletter_mfa",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_advisory_owner",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_method_interest",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_renewal_macro",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_mfa_level",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_manager_naics",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_hold_pronoun",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_salutation_website",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_color_optout",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_status_coi",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_reference_subcategory",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_onboarding_timezone",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_notes_reference",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_qualification_legacy",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_health_ticker",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_w9_site",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_phase_pronoun",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_source_compliance",
+     "type": "int"
+    },
+    {
+     "name": "custrecord_suffix_sync",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_board_project",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_preferred_unit",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_sla_subcategory",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_marketing_interest",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_duns_qualification",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_partner_survey",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_detail_import",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_unit_localization",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_linkedin_import",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_newsletter_committee",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_legacy_risk",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_sso_site",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_feedback_method",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_preferred_group",
+     "type": "float"
+    },
+    {
+     "name": "custrecord_optout_source",
+     "type": "date"
+    },
+    {
+     "name": "custrecord_parent_vat",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_approval_category",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_salutation_migration",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_mfa_interest",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_segment_priority",
+     "type": "str"
+    },
+    {
+     "name": "custrecord_security_type",
+     "type": "bool"
+    },
+    {
+     "name": "custrecord_locale_site",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_department",
+   "role": "core",
+   "rows": 8,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "isinactive",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_item",
+   "role": "core",
+   "rows": 9,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "itemid",
+     "type": "str"
+    },
+    {
+     "name": "itemtype",
+     "type": "str"
+    },
+    {
+     "name": "incomeaccount",
+     "type": "int"
+    },
+    {
+     "name": "department",
+     "type": "int"
+    },
+    {
+     "name": "isinactive",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_next_transaction_line_link",
+   "role": "core",
+   "rows": 1201,
+   "columns": [
+    {
+     "name": "previousdoc",
+     "type": "int"
+    },
+    {
+     "name": "nextdoc",
+     "type": "int"
+    },
+    {
+     "name": "linktype",
+     "type": "str"
+    },
+    {
+     "name": "foreignamount",
+     "type": "float"
+    },
+    {
+     "name": "linkdate",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_subsidiary",
+   "role": "core",
+   "rows": 1,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "currency",
+     "type": "int"
+    },
+    {
+     "name": "country",
+     "type": "str"
+    },
+    {
+     "name": "iselimination",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_transaction",
+   "role": "core",
+   "rows": 3879,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "tranid",
+     "type": "str"
+    },
+    {
+     "name": "type",
+     "type": "str"
+    },
+    {
+     "name": "trandate",
+     "type": "str"
+    },
+    {
+     "name": "entity",
+     "type": "int"
+    },
+    {
+     "name": "subsidiary",
+     "type": "int"
+    },
+    {
+     "name": "currency",
+     "type": "int"
+    },
+    {
+     "name": "exchangerate",
+     "type": "float"
+    },
+    {
+     "name": "foreigntotal",
+     "type": "float"
+    },
+    {
+     "name": "foreignamountremaining",
+     "type": "float"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "voided",
+     "type": "str"
+    },
+    {
+     "name": "duedate",
+     "type": "str"
+    },
+    {
+     "name": "postingperiod",
+     "type": "int"
+    },
+    {
+     "name": "memo",
+     "type": "str"
+    },
+    {
+     "name": "custbody_show_number",
+     "type": "str"
+    },
+    {
+     "name": "createddate",
+     "type": "str"
+    },
+    {
+     "name": "custbody_website_routing",
+     "type": "int"
+    },
+    {
+     "name": "custbody_linkedin_security",
+     "type": "float"
+    },
+    {
+     "name": "custbody_accessibility_type",
+     "type": "int"
+    },
+    {
+     "name": "custbody_exempt_category",
+     "type": "float"
+    },
+    {
+     "name": "custbody_compliance_nps",
+     "type": "str"
+    },
+    {
+     "name": "custbody_suffix_risk",
+     "type": "int"
+    },
+    {
+     "name": "custbody_office_brand",
+     "type": "str"
+    },
+    {
+     "name": "custbody_audit_optout",
+     "type": "float"
+    },
+    {
+     "name": "custbody_export_compliance",
+     "type": "int"
+    },
+    {
+     "name": "custbody_nps_macro",
+     "type": "bool"
+    },
+    {
+     "name": "custbody_group_code",
+     "type": "bool"
+    },
+    {
+     "name": "custbody_vat_suffix",
+     "type": "date"
+    },
+    {
+     "name": "custbody_interest_feedback",
+     "type": "bool"
+    },
+    {
+     "name": "custbody_status_persona",
+     "type": "str"
+    },
+    {
+     "name": "custbody_unit_assistant",
+     "type": "bool"
+    },
+    {
+     "name": "custbody_detail_health",
+     "type": "str"
+    },
+    {
+     "name": "custbody_preferred_routing",
+     "type": "str"
+    },
+    {
+     "name": "custbody_signature_alma",
+     "type": "float"
+    },
+    {
+     "name": "custbody_w9_migration",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_transaction_line",
+   "role": "core",
+   "rows": 10360,
+   "columns": [
+    {
+     "name": "uniquekey",
+     "type": "int"
+    },
+    {
+     "name": "transaction",
+     "type": "int"
+    },
+    {
+     "name": "linesequencenumber",
+     "type": "int"
+    },
+    {
+     "name": "mainline",
+     "type": "str"
+    },
+    {
+     "name": "item",
+     "type": "int"
+    },
+    {
+     "name": "account",
+     "type": "int"
+    },
+    {
+     "name": "department",
+     "type": "int"
+    },
+    {
+     "name": "memo",
+     "type": "str"
+    },
+    {
+     "name": "quantity",
+     "type": "float"
+    },
+    {
+     "name": "rate",
+     "type": "float"
+    },
+    {
+     "name": "foreignamount",
+     "type": "float"
+    },
+    {
+     "name": "netamount",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "netsuite",
+   "table": "netsuite_vendor",
+   "role": "core",
+   "rows": 87,
+   "columns": [
+    {
+     "name": "id",
+     "type": "int"
+    },
+    {
+     "name": "entityid",
+     "type": "str"
+    },
+    {
+     "name": "companyname",
+     "type": "str"
+    },
+    {
+     "name": "isperson",
+     "type": "str"
+    },
+    {
+     "name": "firstname",
+     "type": "str"
+    },
+    {
+     "name": "lastname",
+     "type": "str"
+    },
+    {
+     "name": "currency",
+     "type": "int"
+    },
+    {
+     "name": "category",
+     "type": "str"
+    },
+    {
+     "name": "is1099eligible",
+     "type": "str"
+    },
+    {
+     "name": "datecreated",
+     "type": "str"
+    },
+    {
+     "name": "custentity_owner_macro",
+     "type": "float"
+    },
+    {
+     "name": "custentity_marketing_sla",
+     "type": "str"
+    },
+    {
+     "name": "custentity_mfa_sustainability",
+     "type": "int"
+    },
+    {
+     "name": "custentity_detail_language",
+     "type": "date"
+    },
+    {
+     "name": "custentity_referral_interest",
+     "type": "str"
+    },
+    {
+     "name": "custentity_referral_preferred",
+     "type": "bool"
+    },
+    {
+     "name": "custentity_macro_mfa",
+     "type": "str"
+    },
+    {
+     "name": "custentity_review_sustainability",
+     "type": "bool"
+    },
+    {
+     "name": "custentity_coi_mfa",
+     "type": "str"
+    },
+    {
+     "name": "custentity_sso_dialect",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_account",
+   "role": "core",
+   "rows": 443,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "type",
+     "type": "str"
+    },
+    {
+     "name": "industry",
+     "type": "str"
+    },
+    {
+     "name": "billing_city",
+     "type": "str"
+    },
+    {
+     "name": "billing_state",
+     "type": "str"
+    },
+    {
+     "name": "billing_country",
+     "type": "str"
+    },
+    {
+     "name": "website",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "account_source",
+     "type": "str"
+    },
+    {
+     "name": "number_of_employees",
+     "type": "int"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "last_modified_date",
+     "type": "str"
+    },
+    {
+     "name": "customer_tier_c",
+     "type": "str"
+    },
+    {
+     "name": "netsuite_customer_id_c",
+     "type": "str"
+    },
+    {
+     "name": "region_c",
+     "type": "str"
+    },
+    {
+     "name": "first_event_date_c",
+     "type": "date"
+    },
+    {
+     "name": "salutation_subcategory_c",
+     "type": "str"
+    },
+    {
+     "name": "website_theme_c",
+     "type": "str"
+    },
+    {
+     "name": "consent_partner_c",
+     "type": "str"
+    },
+    {
+     "name": "manager_localization_c",
+     "type": "str"
+    },
+    {
+     "name": "insurance_status_c",
+     "type": "bool"
+    },
+    {
+     "name": "flag_hobby_c",
+     "type": "str"
+    },
+    {
+     "name": "alma_external_c",
+     "type": "bool"
+    },
+    {
+     "name": "language_hold_c",
+     "type": "date"
+    },
+    {
+     "name": "method_headcount_c",
+     "type": "str"
+    },
+    {
+     "name": "status_integration_c",
+     "type": "bool"
+    },
+    {
+     "name": "persona_phase_c",
+     "type": "str"
+    },
+    {
+     "name": "nps_security_c",
+     "type": "float"
+    },
+    {
+     "name": "diversity_segment_c",
+     "type": "int"
+    },
+    {
+     "name": "level_onboarding_c",
+     "type": "date"
+    },
+    {
+     "name": "anniversary_group_c",
+     "type": "str"
+    },
+    {
+     "name": "qualification_batch_c",
+     "type": "date"
+    },
+    {
+     "name": "health_anniversary_c",
+     "type": "bool"
+    },
+    {
+     "name": "team_score_c",
+     "type": "int"
+    },
+    {
+     "name": "hold_macro_c",
+     "type": "str"
+    },
+    {
+     "name": "logo_archive_c",
+     "type": "int"
+    },
+    {
+     "name": "brand_hold_c",
+     "type": "str"
+    },
+    {
+     "name": "advisory_access_c",
+     "type": "float"
+    },
+    {
+     "name": "locale_feedback_c",
+     "type": "str"
+    },
+    {
+     "name": "diversity_board_c",
+     "type": "str"
+    },
+    {
+     "name": "region_access_c",
+     "type": "float"
+    },
+    {
+     "name": "board_feedback_c",
+     "type": "float"
+    },
+    {
+     "name": "queue_audit_c",
+     "type": "str"
+    },
+    {
+     "name": "template_required_c",
+     "type": "float"
+    },
+    {
+     "name": "birthday_domain_c",
+     "type": "int"
+    },
+    {
+     "name": "assistant_alma_c",
+     "type": "str"
+    },
+    {
+     "name": "migration_access_c",
+     "type": "str"
+    },
+    {
+     "name": "ticker_archive_c",
+     "type": "date"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_business_hours",
+   "role": "padding",
+   "rows": 12,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "last_modified_date",
+     "type": "str"
+    },
+    {
+     "name": "system_modstamp",
+     "type": "str"
+    },
+    {
+     "name": "coi_routing_c",
+     "type": "str"
+    },
+    {
+     "name": "parking_priority_c",
+     "type": "int"
+    },
+    {
+     "name": "source_signature_c",
+     "type": "str"
+    },
+    {
+     "name": "survey_owner_c",
+     "type": "bool"
+    },
+    {
+     "name": "method_coi_c",
+     "type": "bool"
+    },
+    {
+     "name": "committee_detail_c",
+     "type": "str"
+    },
+    {
+     "name": "feedback_routing_c",
+     "type": "str"
+    },
+    {
+     "name": "priority_ticker_c",
+     "type": "str"
+    },
+    {
+     "name": "division_coi_c",
+     "type": "int"
+    },
+    {
+     "name": "site_sla_c",
+     "type": "date"
+    },
+    {
+     "name": "w9_required_c",
+     "type": "float"
+    },
+    {
+     "name": "priority_coi_c",
+     "type": "int"
+    },
+    {
+     "name": "parking_newsletter_c",
+     "type": "str"
+    },
+    {
+     "name": "accessibility_portal_c",
+     "type": "str"
+    },
+    {
+     "name": "committee_region_c",
+     "type": "date"
+    },
+    {
+     "name": "badge_parking_c",
+     "type": "str"
+    },
+    {
+     "name": "group_insurance_c",
+     "type": "bool"
+    },
+    {
+     "name": "newsletter_site_c",
+     "type": "date"
+    },
+    {
+     "name": "compliance_retention_c",
+     "type": "str"
+    },
+    {
+     "name": "steering_nickname_c",
+     "type": "str"
+    },
+    {
+     "name": "rating_headcount_c",
+     "type": "str"
+    },
+    {
+     "name": "tier_suffix_c",
+     "type": "int"
+    },
+    {
+     "name": "anniversary_sic_c",
+     "type": "float"
+    },
+    {
+     "name": "renewal_anniversary_c",
+     "type": "date"
+    },
+    {
+     "name": "linkedin_migration_c",
+     "type": "date"
+    },
+    {
+     "name": "steering_partner_c",
+     "type": "int"
+    },
+    {
+     "name": "coi_required_c",
+     "type": "float"
+    },
+    {
+     "name": "locale_w9_c",
+     "type": "date"
+    },
+    {
+     "name": "coi_code_c",
+     "type": "str"
+    },
+    {
+     "name": "hold_retention_c",
+     "type": "bool"
+    },
+    {
+     "name": "status_duns_c",
+     "type": "float"
+    },
+    {
+     "name": "timezone_consent_c",
+     "type": "str"
+    },
+    {
+     "name": "referral_mfa_c",
+     "type": "str"
+    },
+    {
+     "name": "migration_steering_c",
+     "type": "float"
+    },
+    {
+     "name": "board_contact_c",
+     "type": "str"
+    },
+    {
+     "name": "mfa_linkedin_c",
+     "type": "int"
+    },
+    {
+     "name": "naics_color_c",
+     "type": "int"
+    },
+    {
+     "name": "sso_sync_c",
+     "type": "str"
+    },
+    {
+     "name": "linkedin_health_c",
+     "type": "float"
+    },
+    {
+     "name": "tier_routing_c",
+     "type": "date"
+    },
+    {
+     "name": "type_notes_c",
+     "type": "str"
+    },
+    {
+     "name": "newsletter_assistant_c",
+     "type": "str"
+    },
+    {
+     "name": "feedback_integration_c",
+     "type": "date"
+    },
+    {
+     "name": "steering_sso_c",
+     "type": "date"
+    },
+    {
+     "name": "anniversary_theme_c",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_campaign",
+   "role": "core",
+   "rows": 26,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "type",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "start_date",
+     "type": "date"
+    },
+    {
+     "name": "end_date",
+     "type": "date"
+    },
+    {
+     "name": "is_active",
+     "type": "bool"
+    },
+    {
+     "name": "ad_platform_c",
+     "type": "str"
+    },
+    {
+     "name": "platform_campaign_id_c",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "budgeted_cost",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_campaign_member",
+   "role": "core",
+   "rows": 4616,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "campaign_id",
+     "type": "str"
+    },
+    {
+     "name": "lead_id",
+     "type": "str"
+    },
+    {
+     "name": "contact_id",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "has_responded",
+     "type": "bool"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_certification_c",
+   "role": "padding",
+   "rows": 3,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "last_modified_date",
+     "type": "str"
+    },
+    {
+     "name": "system_modstamp",
+     "type": "str"
+    },
+    {
+     "name": "project_survey_c",
+     "type": "int"
+    },
+    {
+     "name": "escalation_vat_c",
+     "type": "float"
+    },
+    {
+     "name": "template_access_c",
+     "type": "int"
+    },
+    {
+     "name": "hold_site_c",
+     "type": "int"
+    },
+    {
+     "name": "timezone_division_c",
+     "type": "int"
+    },
+    {
+     "name": "level_contact_c",
+     "type": "int"
+    },
+    {
+     "name": "macro_sla_c",
+     "type": "date"
+    },
+    {
+     "name": "theme_sic_c",
+     "type": "str"
+    },
+    {
+     "name": "method_exempt_c",
+     "type": "float"
+    },
+    {
+     "name": "dialect_sustainability_c",
+     "type": "int"
+    },
+    {
+     "name": "notes_batch_c",
+     "type": "date"
+    },
+    {
+     "name": "security_renewal_c",
+     "type": "str"
+    },
+    {
+     "name": "locale_feedback_c",
+     "type": "bool"
+    },
+    {
+     "name": "flag_detail_c",
+     "type": "float"
+    },
+    {
+     "name": "status_owner_c",
+     "type": "int"
+    },
+    {
+     "name": "alma_board_c",
+     "type": "str"
+    },
+    {
+     "name": "suffix_required_c",
+     "type": "bool"
+    },
+    {
+     "name": "reference_sla_c",
+     "type": "str"
+    },
+    {
+     "name": "security_dialect_c",
+     "type": "int"
+    },
+    {
+     "name": "newsletter_export_c",
+     "type": "int"
+    },
+    {
+     "name": "unit_contact_c",
+     "type": "float"
+    },
+    {
+     "name": "color_interest_c",
+     "type": "bool"
+    },
+    {
+     "name": "milestone_board_c",
+     "type": "str"
+    },
+    {
+     "name": "health_board_c",
+     "type": "str"
+    },
+    {
+     "name": "reference_insurance_c",
+     "type": "float"
+    },
+    {
+     "name": "detail_routing_c",
+     "type": "str"
+    },
+    {
+     "name": "localization_audit_c",
+     "type": "str"
+    },
+    {
+     "name": "anniversary_alma_c",
+     "type": "str"
+    },
+    {
+     "name": "preferred_channel_c",
+     "type": "float"
+    },
+    {
+     "name": "exempt_marketing_c",
+     "type": "str"
+    },
+    {
+     "name": "optout_subcategory_c",
+     "type": "bool"
+    },
+    {
+     "name": "newsletter_ticker_c",
+     "type": "bool"
+    },
+    {
+     "name": "sync_source_c",
+     "type": "bool"
+    },
+    {
+     "name": "mfa_review_c",
+     "type": "bool"
+    },
+    {
+     "name": "flag_locale_c",
+     "type": "date"
+    },
+    {
+     "name": "external_optout_c",
+     "type": "date"
+    },
+    {
+     "name": "escalation_archive_c",
+     "type": "str"
+    },
+    {
+     "name": "hobby_font_c",
+     "type": "bool"
+    },
+    {
+     "name": "risk_domain_c",
+     "type": "bool"
+    },
+    {
+     "name": "persona_sso_c",
+     "type": "str"
+    },
+    {
+     "name": "persona_feedback_c",
+     "type": "str"
+    },
+    {
+     "name": "manager_hold_c",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_collaboration_group",
+   "role": "padding",
+   "rows": 41,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "last_modified_date",
+     "type": "str"
+    },
+    {
+     "name": "system_modstamp",
+     "type": "str"
+    },
+    {
+     "name": "parent_template_c",
+     "type": "str"
+    },
+    {
+     "name": "certificate_linkedin_c",
+     "type": "str"
+    },
+    {
+     "name": "onboarding_w9_c",
+     "type": "int"
+    },
+    {
+     "name": "source_assistant_c",
+     "type": "str"
+    },
+    {
+     "name": "sso_linkedin_c",
+     "type": "int"
+    },
+    {
+     "name": "suffix_linkedin_c",
+     "type": "int"
+    },
+    {
+     "name": "rating_timezone_c",
+     "type": "str"
+    },
+    {
+     "name": "status_code_c",
+     "type": "str"
+    },
+    {
+     "name": "locale_pronoun_c",
+     "type": "str"
+    },
+    {
+     "name": "anniversary_website_c",
+     "type": "str"
+    },
+    {
+     "name": "duns_alma_c",
+     "type": "str"
+    },
+    {
+     "name": "notes_sla_c",
+     "type": "int"
+    },
+    {
+     "name": "territory_signature_c",
+     "type": "date"
+    },
+    {
+     "name": "birthday_parent_c",
+     "type": "date"
+    },
+    {
+     "name": "mater_rating_c",
+     "type": "str"
+    },
+    {
+     "name": "archive_risk_c",
+     "type": "str"
+    },
+    {
+     "name": "newsletter_project_c",
+     "type": "int"
+    },
+    {
+     "name": "assistant_team_c",
+     "type": "int"
+    },
+    {
+     "name": "sustainability_birthday_c",
+     "type": "date"
+    },
+    {
+     "name": "localization_hobby_c",
+     "type": "str"
+    },
+    {
+     "name": "tier_reference_c",
+     "type": "bool"
+    },
+    {
+     "name": "terms_logo_c",
+     "type": "date"
+    },
+    {
+     "name": "language_alma_c",
+     "type": "float"
+    },
+    {
+     "name": "risk_level_c",
+     "type": "float"
+    },
+    {
+     "name": "persona_consent_c",
+     "type": "float"
+    },
+    {
+     "name": "sustainability_duns_c",
+     "type": "str"
+    },
+    {
+     "name": "theme_team_c",
+     "type": "int"
+    },
+    {
+     "name": "macro_domain_c",
+     "type": "int"
+    },
+    {
+     "name": "advisory_score_c",
+     "type": "bool"
+    },
+    {
+     "name": "terms_parent_c",
+     "type": "date"
+    },
+    {
+     "name": "color_anniversary_c",
+     "type": "str"
+    },
+    {
+     "name": "locale_project_c",
+     "type": "int"
+    },
+    {
+     "name": "w9_sync_c",
+     "type": "str"
+    },
+    {
+     "name": "renewal_website_c",
+     "type": "int"
+    },
+    {
+     "name": "review_level_c",
+     "type": "date"
+    },
+    {
+     "name": "contact_board_c",
+     "type": "float"
+    },
+    {
+     "name": "font_sustainability_c",
+     "type": "str"
+    },
+    {
+     "name": "segment_insurance_c",
+     "type": "date"
+    },
+    {
+     "name": "external_salutation_c",
+     "type": "date"
+    },
+    {
+     "name": "unit_contact_c",
+     "type": "int"
+    },
+    {
+     "name": "portal_sic_c",
+     "type": "str"
+    },
+    {
+     "name": "manager_diversity_c",
+     "type": "date"
+    },
+    {
+     "name": "committee_brand_c",
+     "type": "str"
+    },
+    {
+     "name": "persona_qualification_c",
+     "type": "str"
+    },
+    {
+     "name": "locale_diversity_c",
+     "type": "float"
+    },
+    {
+     "name": "mfa_segment_c",
+     "type": "str"
+    },
+    {
+     "name": "security_vat_c",
+     "type": "float"
+    },
+    {
+     "name": "birthday_portal_c",
+     "type": "str"
+    },
+    {
+     "name": "font_health_c",
+     "type": "str"
+    },
+    {
+     "name": "pronoun_signature_c",
+     "type": "str"
+    },
+    {
+     "name": "partner_source_c",
+     "type": "str"
+    },
+    {
+     "name": "routing_retention_c",
+     "type": "int"
+    },
+    {
+     "name": "badge_flag_c",
+     "type": "int"
+    },
+    {
+     "name": "sso_health_c",
+     "type": "str"
+    },
+    {
+     "name": "import_interest_c",
+     "type": "str"
+    },
+    {
+     "name": "optout_mfa_c",
+     "type": "int"
+    },
+    {
+     "name": "contact_sync_c",
+     "type": "str"
+    },
+    {
+     "name": "optout_routing_c",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_contact",
+   "role": "core",
+   "rows": 881,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "account_id",
+     "type": "str"
+    },
+    {
+     "name": "first_name",
+     "type": "str"
+    },
+    {
+     "name": "last_name",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "email",
+     "type": "str"
+    },
+    {
+     "name": "title",
+     "type": "str"
+    },
+    {
+     "name": "phone",
+     "type": "str"
+    },
+    {
+     "name": "lead_source",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "optout_mfa_c",
+     "type": "str"
+    },
+    {
+     "name": "survey_priority_c",
+     "type": "str"
+    },
+    {
+     "name": "integration_detail_c",
+     "type": "float"
+    },
+    {
+     "name": "template_flag_c",
+     "type": "str"
+    },
+    {
+     "name": "team_insurance_c",
+     "type": "bool"
+    },
+    {
+     "name": "method_manager_c",
+     "type": "date"
+    },
+    {
+     "name": "template_signature_c",
+     "type": "str"
+    },
+    {
+     "name": "persona_vat_c",
+     "type": "date"
+    },
+    {
+     "name": "priority_referral_c",
+     "type": "float"
+    },
+    {
+     "name": "sync_sso_c",
+     "type": "str"
+    },
+    {
+     "name": "domain_theme_c",
+     "type": "float"
+    },
+    {
+     "name": "consent_office_c",
+     "type": "date"
+    },
+    {
+     "name": "unit_rating_c",
+     "type": "date"
+    },
+    {
+     "name": "newsletter_badge_c",
+     "type": "date"
+    },
+    {
+     "name": "board_segment_c",
+     "type": "str"
+    },
+    {
+     "name": "segment_naics_c",
+     "type": "str"
+    },
+    {
+     "name": "brand_tier_c",
+     "type": "str"
+    },
+    {
+     "name": "export_required_c",
+     "type": "float"
+    },
+    {
+     "name": "audit_type_c",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_dashboard",
+   "role": "padding",
+   "rows": 52,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "last_modified_date",
+     "type": "str"
+    },
+    {
+     "name": "system_modstamp",
+     "type": "str"
+    },
+    {
+     "name": "logo_archive_c",
+     "type": "float"
+    },
+    {
+     "name": "milestone_access_c",
+     "type": "date"
+    },
+    {
+     "name": "committee_review_c",
+     "type": "str"
+    },
+    {
+     "name": "queue_logo_c",
+     "type": "str"
+    },
+    {
+     "name": "advisory_retention_c",
+     "type": "bool"
+    },
+    {
+     "name": "terms_onboarding_c",
+     "type": "int"
+    },
+    {
+     "name": "group_region_c",
+     "type": "str"
+    },
+    {
+     "name": "procurement_preferred_c",
+     "type": "int"
+    },
+    {
+     "name": "logo_external_c",
+     "type": "int"
+    },
+    {
+     "name": "logo_renewal_c",
+     "type": "str"
+    },
+    {
+     "name": "nps_consent_c",
+     "type": "float"
+    },
+    {
+     "name": "approval_portal_c",
+     "type": "str"
+    },
+    {
+     "name": "qualification_accessibility_c",
+     "type": "float"
+    },
+    {
+     "name": "nickname_legacy_c",
+     "type": "float"
+    },
+    {
+     "name": "compliance_sync_c",
+     "type": "bool"
+    },
+    {
+     "name": "domain_integration_c",
+     "type": "bool"
+    },
+    {
+     "name": "board_naics_c",
+     "type": "str"
+    },
+    {
+     "name": "detail_localization_c",
+     "type": "bool"
+    },
+    {
+     "name": "marketing_priority_c",
+     "type": "bool"
+    },
+    {
+     "name": "insurance_qualification_c",
+     "type": "int"
+    },
+    {
+     "name": "owner_persona_c",
+     "type": "int"
+    },
+    {
+     "name": "sync_risk_c",
+     "type": "str"
+    },
+    {
+     "name": "naics_macro_c",
+     "type": "str"
+    },
+    {
+     "name": "phase_referral_c",
+     "type": "int"
+    },
+    {
+     "name": "certificate_sync_c",
+     "type": "float"
+    },
+    {
+     "name": "sic_mater_c",
+     "type": "date"
+    },
+    {
+     "name": "qualification_parent_c",
+     "type": "str"
+    },
+    {
+     "name": "localization_escalation_c",
+     "type": "float"
+    },
+    {
+     "name": "batch_health_c",
+     "type": "int"
+    },
+    {
+     "name": "committee_unit_c",
+     "type": "float"
+    },
+    {
+     "name": "macro_badge_c",
+     "type": "str"
+    },
+    {
+     "name": "parking_mater_c",
+     "type": "float"
+    },
+    {
+     "name": "insurance_pronoun_c",
+     "type": "str"
+    },
+    {
+     "name": "procurement_sync_c",
+     "type": "str"
+    },
+    {
+     "name": "sso_salutation_c",
+     "type": "date"
+    },
+    {
+     "name": "integration_subcategory_c",
+     "type": "bool"
+    },
+    {
+     "name": "qualification_w9_c",
+     "type": "str"
+    },
+    {
+     "name": "hobby_archive_c",
+     "type": "int"
+    },
+    {
+     "name": "unit_theme_c",
+     "type": "int"
+    },
+    {
+     "name": "export_import_c",
+     "type": "int"
+    },
+    {
+     "name": "linkedin_site_c",
+     "type": "str"
+    },
+    {
+     "name": "dialect_birthday_c",
+     "type": "bool"
+    },
+    {
+     "name": "qualification_birthday_c",
+     "type": "date"
+    },
+    {
+     "name": "duns_contact_c",
+     "type": "float"
+    },
+    {
+     "name": "locale_language_c",
+     "type": "int"
+    },
+    {
+     "name": "access_required_c",
+     "type": "bool"
+    },
+    {
+     "name": "integration_anniversary_c",
+     "type": "float"
+    },
+    {
+     "name": "badge_duns_c",
+     "type": "bool"
+    },
+    {
+     "name": "retention_diversity_c",
+     "type": "str"
+    },
+    {
+     "name": "unit_coi_c",
+     "type": "bool"
+    },
+    {
+     "name": "preferred_font_c",
+     "type": "bool"
+    },
+    {
+     "name": "sic_assistant_c",
+     "type": "str"
+    },
+    {
+     "name": "insurance_site_c",
+     "type": "int"
+    },
+    {
+     "name": "renewal_signature_c",
+     "type": "str"
+    },
+    {
+     "name": "sla_legacy_c",
+     "type": "str"
+    },
+    {
+     "name": "badge_signature_c",
+     "type": "date"
+    },
+    {
+     "name": "assistant_terms_c",
+     "type": "str"
+    },
+    {
+     "name": "feedback_sla_c",
+     "type": "float"
+    },
+    {
+     "name": "project_portal_c",
+     "type": "str"
+    },
+    {
+     "name": "retention_risk_c",
+     "type": "date"
+    },
+    {
+     "name": "site_approval_c",
+     "type": "str"
+    },
+    {
+     "name": "territory_alma_c",
+     "type": "date"
+    },
+    {
+     "name": "sso_sync_c",
+     "type": "str"
+    },
+    {
+     "name": "health_sync_c",
+     "type": "int"
+    },
+    {
+     "name": "risk_migration_c",
+     "type": "str"
+    },
+    {
+     "name": "preferred_export_c",
+     "type": "date"
+    },
+    {
+     "name": "locale_naics_c",
+     "type": "str"
+    },
+    {
+     "name": "board_locale_c",
+     "type": "str"
+    },
+    {
+     "name": "reference_manager_c",
+     "type": "str"
+    },
+    {
+     "name": "insurance_timezone_c",
+     "type": "date"
+    },
+    {
+     "name": "detail_survey_c",
+     "type": "str"
+    },
+    {
+     "name": "detail_tier_c",
+     "type": "str"
+    },
+    {
+     "name": "advisory_required_c",
+     "type": "str"
+    },
+    {
+     "name": "insurance_vat_c",
+     "type": "float"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_data_use_purpose",
+   "role": "padding",
+   "rows": 51,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "last_modified_date",
+     "type": "str"
+    },
+    {
+     "name": "system_modstamp",
+     "type": "str"
+    },
+    {
+     "name": "anniversary_survey_c",
+     "type": "str"
+    },
+    {
+     "name": "referral_source_c",
+     "type": "bool"
+    },
+    {
+     "name": "import_survey_c",
+     "type": "float"
+    },
+    {
+     "name": "channel_rating_c",
+     "type": "str"
+    },
+    {
+     "name": "steering_team_c",
+     "type": "str"
+    },
+    {
+     "name": "website_certificate_c",
+     "type": "int"
+    },
+    {
+     "name": "legacy_portal_c",
+     "type": "bool"
+    },
+    {
+     "name": "website_health_c",
+     "type": "str"
+    },
+    {
+     "name": "channel_external_c",
+     "type": "str"
+    },
+    {
+     "name": "hobby_migration_c",
+     "type": "date"
+    },
+    {
+     "name": "audit_sla_c",
+     "type": "date"
+    },
+    {
+     "name": "code_mfa_c",
+     "type": "bool"
+    },
+    {
+     "name": "hobby_assistant_c",
+     "type": "float"
+    },
+    {
+     "name": "region_timezone_c",
+     "type": "date"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_lead",
+   "role": "core",
+   "rows": 7452,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "first_name",
+     "type": "str"
+    },
+    {
+     "name": "last_name",
+     "type": "str"
+    },
+    {
+     "name": "company",
+     "type": "str"
+    },
+    {
+     "name": "email",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "lead_source",
+     "type": "str"
+    },
+    {
+     "name": "is_converted",
+     "type": "bool"
+    },
+    {
+     "name": "converted_date",
+     "type": "date"
+    },
+    {
+     "name": "converted_account_id",
+     "type": "str"
+    },
+    {
+     "name": "converted_contact_id",
+     "type": "str"
+    },
+    {
+     "name": "converted_opportunity_id",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "utm_source_c",
+     "type": "str"
+    },
+    {
+     "name": "utm_medium_c",
+     "type": "str"
+    },
+    {
+     "name": "utm_campaign_c",
+     "type": "str"
+    },
+    {
+     "name": "gclid_c",
+     "type": "str"
+    },
+    {
+     "name": "fb_lead_id_c",
+     "type": "str"
+    },
+    {
+     "name": "fb_campaign_id_c",
+     "type": "str"
+    },
+    {
+     "name": "event_type_interest_c",
+     "type": "str"
+    },
+    {
+     "name": "group_insurance_c",
+     "type": "str"
+    },
+    {
+     "name": "type_export_c",
+     "type": "str"
+    },
+    {
+     "name": "font_mfa_c",
+     "type": "bool"
+    },
+    {
+     "name": "unit_newsletter_c",
+     "type": "float"
+    },
+    {
+     "name": "preferred_headcount_c",
+     "type": "float"
+    },
+    {
+     "name": "type_marketing_c",
+     "type": "date"
+    },
+    {
+     "name": "template_nps_c",
+     "type": "int"
+    },
+    {
+     "name": "site_qualification_c",
+     "type": "float"
+    },
+    {
+     "name": "compliance_method_c",
+     "type": "str"
+    },
+    {
+     "name": "locale_pronoun_c",
+     "type": "str"
+    },
+    {
+     "name": "diversity_territory_c",
+     "type": "str"
+    },
+    {
+     "name": "pronoun_website_c",
+     "type": "date"
+    },
+    {
+     "name": "suffix_persona_c",
+     "type": "str"
+    },
+    {
+     "name": "onboarding_website_c",
+     "type": "str"
+    },
+    {
+     "name": "portal_review_c",
+     "type": "bool"
+    },
+    {
+     "name": "migration_dialect_c",
+     "type": "str"
+    },
+    {
+     "name": "milestone_segment_c",
+     "type": "str"
+    },
+    {
+     "name": "preferred_domain_c",
+     "type": "str"
+    },
+    {
+     "name": "advisory_division_c",
+     "type": "str"
+    },
+    {
+     "name": "health_nickname_c",
+     "type": "bool"
+    },
+    {
+     "name": "consent_exempt_c",
+     "type": "date"
+    },
+    {
+     "name": "anniversary_procurement_c",
+     "type": "str"
+    },
+    {
+     "name": "nickname_language_c",
+     "type": "str"
+    },
+    {
+     "name": "terms_domain_c",
+     "type": "bool"
+    },
+    {
+     "name": "import_flag_c",
+     "type": "int"
+    },
+    {
+     "name": "ticker_audit_c",
+     "type": "date"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_opportunity",
+   "role": "core",
+   "rows": 789,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "account_id",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "stage_name",
+     "type": "str"
+    },
+    {
+     "name": "amount",
+     "type": "float"
+    },
+    {
+     "name": "probability",
+     "type": "float"
+    },
+    {
+     "name": "close_date",
+     "type": "date"
+    },
+    {
+     "name": "type",
+     "type": "str"
+    },
+    {
+     "name": "lead_source",
+     "type": "str"
+    },
+    {
+     "name": "is_closed",
+     "type": "bool"
+    },
+    {
+     "name": "is_won",
+     "type": "bool"
+    },
+    {
+     "name": "forecast_category_name",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "campaign_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "fiscal_year",
+     "type": "int"
+    },
+    {
+     "name": "fiscal_quarter",
+     "type": "int"
+    },
+    {
+     "name": "event_type_c",
+     "type": "str"
+    },
+    {
+     "name": "event_date_c",
+     "type": "date"
+    },
+    {
+     "name": "show_number_c",
+     "type": "str"
+    },
+    {
+     "name": "loss_reason_c",
+     "type": "str"
+    },
+    {
+     "name": "venue_c",
+     "type": "str"
+    },
+    {
+     "name": "next_step",
+     "type": "str"
+    },
+    {
+     "name": "diversity_portal_c",
+     "type": "int"
+    },
+    {
+     "name": "fiscal_review_c",
+     "type": "float"
+    },
+    {
+     "name": "w9_audit_c",
+     "type": "int"
+    },
+    {
+     "name": "approval_type_c",
+     "type": "str"
+    },
+    {
+     "name": "compliance_anniversary_c",
+     "type": "str"
+    },
+    {
+     "name": "routing_naics_c",
+     "type": "int"
+    },
+    {
+     "name": "approval_exempt_c",
+     "type": "float"
+    },
+    {
+     "name": "batch_linkedin_c",
+     "type": "float"
+    },
+    {
+     "name": "segment_onboarding_c",
+     "type": "int"
+    },
+    {
+     "name": "health_risk_c",
+     "type": "int"
+    },
+    {
+     "name": "referral_survey_c",
+     "type": "date"
+    },
+    {
+     "name": "routing_timezone_c",
+     "type": "bool"
+    },
+    {
+     "name": "renewal_anniversary_c",
+     "type": "bool"
+    },
+    {
+     "name": "parking_terms_c",
+     "type": "date"
+    },
+    {
+     "name": "accessibility_sso_c",
+     "type": "int"
+    },
+    {
+     "name": "category_procurement_c",
+     "type": "str"
+    },
+    {
+     "name": "headcount_steering_c",
+     "type": "date"
+    },
+    {
+     "name": "review_insurance_c",
+     "type": "date"
+    },
+    {
+     "name": "renewal_nps_c",
+     "type": "str"
+    },
+    {
+     "name": "theme_pronoun_c",
+     "type": "float"
+    },
+    {
+     "name": "phase_tier_c",
+     "type": "float"
+    },
+    {
+     "name": "linkedin_compliance_c",
+     "type": "date"
+    },
+    {
+     "name": "duns_font_c",
+     "type": "int"
+    },
+    {
+     "name": "qualification_partner_c",
+     "type": "str"
+    },
+    {
+     "name": "security_board_c",
+     "type": "str"
+    },
+    {
+     "name": "sso_assistant_c",
+     "type": "date"
+    },
+    {
+     "name": "health_font_c",
+     "type": "date"
+    },
+    {
+     "name": "sync_category_c",
+     "type": "str"
+    },
+    {
+     "name": "region_notes_c",
+     "type": "str"
+    },
+    {
+     "name": "hold_domain_c",
+     "type": "int"
+    },
+    {
+     "name": "theme_badge_c",
+     "type": "str"
+    },
+    {
+     "name": "required_portal_c",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_opportunity_contact_role",
+   "role": "core",
+   "rows": 1022,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "opportunity_id",
+     "type": "str"
+    },
+    {
+     "name": "contact_id",
+     "type": "str"
+    },
+    {
+     "name": "role",
+     "type": "str"
+    },
+    {
+     "name": "is_primary",
+     "type": "bool"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_opportunity_history",
+   "role": "core",
+   "rows": 2654,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "opportunity_id",
+     "type": "str"
+    },
+    {
+     "name": "stage_name",
+     "type": "str"
+    },
+    {
+     "name": "amount",
+     "type": "float"
+    },
+    {
+     "name": "close_date",
+     "type": "date"
+    },
+    {
+     "name": "probability",
+     "type": "float"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_quick_text_feed",
+   "role": "padding",
+   "rows": 99,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "is_deleted",
+     "type": "bool"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    },
+    {
+     "name": "last_modified_date",
+     "type": "str"
+    },
+    {
+     "name": "system_modstamp",
+     "type": "str"
+    },
+    {
+     "name": "signature_segment_c",
+     "type": "str"
+    },
+    {
+     "name": "vat_domain_c",
+     "type": "date"
+    },
+    {
+     "name": "preferred_priority_c",
+     "type": "str"
+    },
+    {
+     "name": "linkedin_compliance_c",
+     "type": "bool"
+    },
+    {
+     "name": "headcount_brand_c",
+     "type": "str"
+    },
+    {
+     "name": "committee_territory_c",
+     "type": "float"
+    },
+    {
+     "name": "feedback_batch_c",
+     "type": "str"
+    },
+    {
+     "name": "status_phase_c",
+     "type": "bool"
+    },
+    {
+     "name": "queue_advisory_c",
+     "type": "float"
+    },
+    {
+     "name": "suffix_feedback_c",
+     "type": "str"
+    },
+    {
+     "name": "font_parking_c",
+     "type": "date"
+    },
+    {
+     "name": "tier_committee_c",
+     "type": "date"
+    },
+    {
+     "name": "domain_nps_c",
+     "type": "str"
+    },
+    {
+     "name": "site_territory_c",
+     "type": "float"
+    },
+    {
+     "name": "macro_partner_c",
+     "type": "int"
+    },
+    {
+     "name": "level_manager_c",
+     "type": "float"
+    },
+    {
+     "name": "tier_detail_c",
+     "type": "str"
+    },
+    {
+     "name": "integration_hold_c",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_task",
+   "role": "core",
+   "rows": 4738,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "who_id",
+     "type": "str"
+    },
+    {
+     "name": "what_id",
+     "type": "str"
+    },
+    {
+     "name": "subject",
+     "type": "str"
+    },
+    {
+     "name": "status",
+     "type": "str"
+    },
+    {
+     "name": "priority",
+     "type": "str"
+    },
+    {
+     "name": "activity_date",
+     "type": "date"
+    },
+    {
+     "name": "owner_id",
+     "type": "str"
+    },
+    {
+     "name": "type",
+     "type": "str"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    }
+   ]
+  },
+  {
+   "system": "salesforce",
+   "table": "salesforce_user",
+   "role": "core",
+   "rows": 32,
+   "columns": [
+    {
+     "name": "id",
+     "type": "str"
+    },
+    {
+     "name": "username",
+     "type": "str"
+    },
+    {
+     "name": "name",
+     "type": "str"
+    },
+    {
+     "name": "first_name",
+     "type": "str"
+    },
+    {
+     "name": "last_name",
+     "type": "str"
+    },
+    {
+     "name": "email",
+     "type": "str"
+    },
+    {
+     "name": "title",
+     "type": "str"
+    },
+    {
+     "name": "department",
+     "type": "str"
+    },
+    {
+     "name": "office_c",
+     "type": "str"
+    },
+    {
+     "name": "is_active",
+     "type": "bool"
+    },
+    {
+     "name": "created_date",
+     "type": "str"
+    }
+   ]
+  }
+ ],
+ "column_count": 1541,
+ "table_count": 67,
+ "tier": 1,
+ "target_columns": 1500,
+ "seed": 20261112,
+ "generator_version": "0.1.0"
+}

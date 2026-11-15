@@ -9,7 +9,7 @@ from dataclasses import dataclass
 from datetime import date, timedelta
 
 from .render import slug
-from .world import AS_OF, DEPTS, EVENT_TYPES, OFFICES, US_OFFICES, World, rate_on
+from .world import AS_OF, CREW_ROLES, DEPTS, EVENT_TYPES, OFFICES, US_OFFICES, World, rate_on
 
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 CITY = {k: v["city"] for k, v in OFFICES.items()}
@@ -85,6 +85,11 @@ def unique_top(scores: dict, min_gap: float = 0.005):
 @dataclass
 class Ctx:
     w: World
+    core: dict
+
+    def rows(self, system: str, table: str) -> list:
+        """Rendered rows, for questions whose truth is a system's own record (tasks logged, rate tables)."""
+        return self.core[system][table].rows
 
     def __post_init__(self):
         w = self.w
@@ -127,9 +132,10 @@ class Ctx:
 TEMPLATES = []
 
 
-def template(name: str, systems: list, stratum: str, difficulty: str):
+def template(name: str, systems: list, stratum: str, difficulty: str, test_only: bool = False):
+    """test_only templates never appear in the query log, so their tables stay in the log's long tail."""
     def deco(fn):
-        TEMPLATES.append((name, systems, stratum, difficulty, fn))
+        TEMPLATES.append((name, systems, stratum, difficulty, test_only, fn))
         return fn
     return deco
 
@@ -622,16 +628,159 @@ JOIN salesforce_opportunity o ON left(o.id, 15) = left(s.crm_opp_ref, 15) AND NO
 WHERE t.type = 'CustInvc' AND t.voided = 'F' AND o.lead_source = 'Google Ads' AND {between(CW_DATE.format(col='s.show_start_dt'), p)}"""
 
 
-def generate(w: World, generator_version: str) -> list[dict]:
-    ctx = Ctx(w)
+@template("crm_contacts_added_quarter", ["salesforce"], "single_table", "easy", test_only=True)
+def crm_contacts_added_quarter(ctx: Ctx):
+    for p in QUARTERS:
+        n = sum(1 for ct in ctx.w.contacts if inside(ct["created"].date(), p))
+        yield p["key"], f"How many contacts did we add to the CRM in {p['label']}?", count_answer(n), f"""
+SELECT COUNT(*) FROM salesforce_contact WHERE NOT is_deleted AND {between('CAST(substr(created_date, 1, 10) AS DATE)', p)}"""
+
+
+@template("crm_calls_logged_month", ["salesforce"], "single_table", "easy", test_only=True)
+def crm_calls_logged_month(ctx: Ctx):
+    tasks = ctx.rows("salesforce", "salesforce_task")
+    for p in MONTHS_IN_WINDOW[1::3]:
+        n = sum(1 for t in tasks if t["type"] == "Call" and inside(t["activity_date"], p))
+        yield p["key"], f"How many calls did our sales team log in the CRM in {p['label']}?", count_answer(n), f"""
+SELECT COUNT(*) FROM salesforce_task WHERE type = 'Call' AND {between('activity_date', p)}"""
+
+
+@template("crm_campaign_members", ["salesforce"], "single_system_join", "medium", test_only=True)
+def crm_campaign_members(ctx: Ctx):
+    names = {c["id"]: c["name"] for c in ctx.rows("salesforce", "salesforce_campaign")}
+    counts: dict[str, int] = {}
+    for m in ctx.rows("salesforce", "salesforce_campaign_member"):
+        if m["lead_id"]:
+            counts[m["campaign_id"]] = counts.get(m["campaign_id"], 0) + 1
+    r = random.Random(ctx.w.seed + 15)
+    for cid in r.sample(sorted(counts), 8):
+        yield cid, f"How many leads are members of the CRM campaign \"{names[cid]}\"?", count_answer(counts[cid]), f"""
+SELECT COUNT(*) FROM salesforce_campaign_member m JOIN salesforce_campaign c ON c.id = m.campaign_id
+WHERE c.name = '{names[cid]}' AND m.lead_id IS NOT NULL"""
+
+
+@template("cw_assets_owned", ["cuewright"], "single_system_join", "easy", test_only=True)
+def cw_assets_owned(ctx: Ctx):
+    items = {i["code"]: i for i in ctx.w.gear_items}
+    r = random.Random(ctx.w.seed + 16)
+    for code in r.sample(sorted({a["code"] for a in ctx.w.gear_assets}), 8):
+        n = sum(1 for a in ctx.w.gear_assets if a["code"] == code and a["retired"] is None)
+        desc = items[code]["desc"]
+        yield code, f"How many {desc} units do we own, not counting retired ones?", count_answer(n), f"""
+SELECT COUNT(*) FROM cuewright_gear_assets a JOIN cuewright_gear_items i ON i.item_cd = a.item_cd
+WHERE i.item_desc = '{desc}' AND a.asset_status <> 'RETIRED'"""
+
+
+@template("cw_union_venues_city", ["cuewright"], "single_table", "hard", test_only=True)
+def cw_union_venues_city(ctx: Ctx):
+    cities: dict[str, list] = {}
+    for v in ctx.w.venues:
+        cities.setdefault(v["city"], []).append(v)
+    for city in sorted(c for c, vs in cities.items() if len(vs) >= 3):
+        n = sum(1 for v in cities[city] if v["union"])
+        yield city, f"How many of the venues we've worked with in {city} are union houses?", count_answer(n), f"""
+SELECT COUNT(*) FROM cuewright_venues WHERE city = '{city}' AND CAST(json_extract(details, '$.union_house') AS BOOLEAN)"""
+
+
+@template("cw_top_producer", ["cuewright"], "single_system_join", "medium", test_only=True)
+def cw_top_producer(ctx: Ctx):
+    for p in SPANS + QUARTERS:
+        scores: dict[int, float] = {}
+        for s in ctx.w.shows:
+            if not s["cancel"] and inside(s["start"], p):
+                scores[s["producer"]] = scores.get(s["producer"], 0) + 1
+        top = unique_top(scores)
+        if top is None:
+            continue
+        legal, aliases = ctx.person_aliases(top)
+        yield p["key"], f"Which producer ran the most shows that started in {p['label']}, not counting cancelled ones?", entity_answer(legal, aliases), f"""
+SELECT u.full_nm FROM cuewright_shows s JOIN cuewright_users u ON u.user_id = s.producer_id
+WHERE s.status_cd <> 'CANC' AND {between(CW_DATE.format(col='s.show_start_dt'), p)}
+GROUP BY u.user_id, u.full_nm ORDER BY COUNT(*) DESC LIMIT 1"""
+
+
+@template("cw_bill_rate", ["cuewright"], "single_table", "medium", test_only=True)
+def cw_bill_rate(ctx: Ctx):
+    rates = {(x["rt_cd"], x["eff_dt"]): x["rt_amt"] for x in ctx.rows("cuewright", "cuewright_xrtcd")}
+    for code, (_, _, _, title) in CREW_ROLES.items():
+        for year in (2025, 2026):
+            v = rates[(f"L{code}", f"01/01/{year}")]
+            yield f"{code}:{year}", f"What was our standard hourly bill rate for a {title} in {year}?", money_answer(v, tol=0.0), f"""
+SELECT rt_amt FROM cuewright_xrtcd WHERE rt_cd = 'L{code}' AND eff_dt = '01/01/{year}'"""
+
+
+@template("erp_account_total", ["netsuite"], "single_system_join", "hard", test_only=True)
+def erp_account_total(ctx: Ctx):
+    accounts = {"5100": "Freelance Labor", "5200": "Freight Expense", "5300": "Subrental Expense", "6100": "Contractor Fees", "6200": "General Overhead"}
+    for acct, name in accounts.items():
+        for key in ("2025", "2026H1"):
+            p = span_period(key)
+            v = sum(l["amount"] * t["fx"] / 100 for t in ctx.w.transactions if t["type"] == "VendBill" and inside(t["date"], p)
+                    for l in t["lines"] if l.get("acct") == acct)
+            yield f"{acct}:{key}", f"How much did we book to {name} in {p['label']}, in US dollars?", money_answer(v), f"""
+SELECT SUM(l.foreignamount * t.exchangerate)
+FROM netsuite_transaction_line l
+JOIN netsuite_transaction t ON t.id = l."transaction"
+JOIN netsuite_account a ON a.id = l.account
+WHERE a.fullname = '{name}' AND l.mainline = 'F' AND t.voided = 'F' AND {between(NS_DATE.format(col='t.trandate'), p)}"""
+
+
+@template("erp_new_customers", ["netsuite"], "single_table", "medium", test_only=True)
+def erp_new_customers(ctx: Ctx):
+    for p in SPANS + QUARTERS[2:6]:
+        n = sum(1 for cu in ctx.w.customers.values() if inside(cu["created"], p))
+        yield p["key"], f"How many new customers did we set up in the ERP in {p['label']}?", count_answer(n), f"""
+SELECT COUNT(*) FROM netsuite_customer
+WHERE {between("CAST(strptime(split_part(datecreated, ' ', 1), '%m/%d/%Y') AS DATE)", p)}"""
+
+
+@template("meta_top_adset", ["meta_ads"], "single_system_join", "medium", test_only=True)
+def meta_top_adset(ctx: Ctx):
+    names = {s["id"]: s["name"] for c in ctx.w.meta_campaigns for s in c["ad_sets"]}
+    for p in QUARTERS:
+        scores: dict[str, float] = {}
+        for m in ctx.w.meta_insights:
+            if inside(m["date"], p):
+                scores[m["ad_set"]] = scores.get(m["ad_set"], 0) + m["spend_cents"]
+        top = unique_top(scores)
+        if top is None:
+            continue
+        yield p["key"], f"Which Meta ad set spent the most in {p['label']}?", entity_answer(names[top], []), f"""
+SELECT a.name FROM meta_ads_insights i JOIN meta_ads_ad_sets a ON a.id = i.adset_id
+WHERE {between('CAST(i.date_start AS DATE)', p)} GROUP BY a.id, a.name ORDER BY SUM(CAST(i.spend AS DOUBLE)) DESC LIMIT 1"""
+
+
+@template("adp_commission_quarter", ["adp"], "single_system_join", "medium", test_only=True)
+def adp_commission_quarter(ctx: Ctx):
+    for p in QUARTERS:
+        v = sum(e["amount"] for s in ctx.w.pay_statements if inside(s["pay_date"], p) for e in s["earnings"] if e["code"] == "COM") / 100
+        yield p["key"], f"How much sales commission did we pay on paychecks dated in {p['label']}?", money_answer(v), f"""
+SELECT SUM(e.amount) FROM adp_pay_statement_earnings e JOIN adp_pay_statements s ON s.pay_statement_id = e.pay_statement_id
+WHERE e.earning_code = 'COM' AND {between('s.pay_date', p)}"""
+
+
+@template("cw_pull_units_show", ["cuewright"], "single_system_join", "easy", test_only=True)
+def cw_pull_units_show(ctx: Ctx):
+    units: dict[int, int] = {}
+    for row in ctx.rows("cuewright", "cuewright_pull_lines"):
+        units[row["show_id"]] = units.get(row["show_id"], 0) + row["qty"]
+    r = random.Random(ctx.w.seed + 17)
+    for sid in r.sample(sorted(units), 8):
+        no = ctx.shows[sid - 30000]["number"]
+        yield no, f"How many pieces of gear were on the pull list for show {no}?", count_answer(units[sid]), f"""
+SELECT SUM(p.qty) FROM cuewright_pull_lines p JOIN cuewright_shows s ON s.show_id = p.show_id WHERE s.show_no = '{no}'"""
+
+
+def generate(w: World, core: dict, generator_version: str) -> list[dict]:
+    ctx = Ctx(w, core)
     r = random.Random(w.seed + 10)
     out = []
-    for name, systems, stratum, difficulty, fn in TEMPLATES:
+    for name, systems, stratum, difficulty, test_only, fn in TEMPLATES:
         instances = [x for x in fn(ctx) if not (x[2]["type"] == "money" and x[2]["value"] == 0)]
         r.shuffle(instances)
         for i, (param, question, answer, sql) in enumerate(instances):
             out.append({
-                "template": name, "param": param, "split": "test" if i % 2 == 0 else "log", "question": question, "answer": answer,
+                "template": name, "param": param, "split": "test" if test_only or i % 2 == 0 else "log", "question": question, "answer": answer,
                 "systems": systems, "cross_system": stratum == "cross_system", "stratum": stratum, "difficulty": difficulty,
                 "reference_sql": sql.strip(), "reference_sql_dialect": "duckdb", "generator_version": generator_version,
             })

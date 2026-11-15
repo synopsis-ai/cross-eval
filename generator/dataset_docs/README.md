@@ -59,7 +59,9 @@ The same business, and the same questions, at four schema sizes. Each tier is se
 ```
 data/tier-<n>/<system>/<table>.parquet   one Parquet file per table (zstd)
 schema/tier-<n>.json                     every table, column, type and row count per tier
-questions/questions.jsonl                one question per line
+questions/test.jsonl                     the test questions, one per line (the same for every tier)
+questions/log-tier-<n>.jsonl             the tier's query log: past questions, never scored
+usage/tier-<n>.json                      the tier's table-usage ranking and seeding coverage
 MATCHING.md                              how answers are scored
 DATASHEET.md                             how the data was made, and its limits
 generator/                               the code that builds all of the above
@@ -75,7 +77,7 @@ CREATE VIEW cuewright_shows AS SELECT * FROM 'data/tier-1/cuewright/cuewright_sh
 
 {{QUESTION_TABLE}}
 
-Each line of `questions/questions.jsonl` looks like this:
+Each line of `questions/test.jsonl` looks like this:
 
 ```json
 {{EXAMPLE}}
@@ -83,13 +85,35 @@ Each line of `questions/questions.jsonl` looks like this:
 
 - **`answer` is the gold answer, plus what's needed to match it fuzzily.** That includes tolerance and precision, every name an entity goes by, and `accepted` alternatives for legitimate readings of the question.
 - **Gold answers come from the simulated business, not from SQL.** The `reference_sql` query shows the question can be answered from the tables, and it reproduces every gold answer on every tier. Scoring never uses it.
-- **Splits:**
-  - `test` is for measurement.
-  - `log` is a separate set from the same templates. Use it as a query history for systems that learn from past questions, and never score on it.
+- **Test and log:**
+  - `questions/test.jsonl` is for measurement.
+  - `questions/log-tier-<n>.jsonl` is the tier's query history: a month of earlier questions. Use it for systems that learn from past questions, and never score on it.
 - **Strata:**
   - `single_table`
   - `single_system_join`
   - `cross_system`: needs two or more systems.
+
+## Query log and seeding
+
+Some systems give the AI a "seed" up front: the schemas of the tables the company queries most. The rest it has to look up. Each tier ships what you need to test how many tables to seed.
+
+**The log.** Each tier has a realistic query log. Usage falls off steeply (Zipf, exponent {{ZIPF}}): a few tables are queried constantly, and most are queried once or never.
+
+- The core business tables get the same usage in every tier, because it's the same company and the same people asking.
+- Bigger tiers add more rarely-used padding tables to the log, so those compete for seed slots.
+- A few core tables never appear in the log, and some test questions need them. A seed built from history can't contain them.
+
+{{LOG_TABLE}}
+
+**The ranking.** `usage/tier-<n>.json` ranks every table the log touches by how many log questions use it. To seed the top P% of a tier, take the first `ceil(P% × tables in the tier)` entries of `ranking`, then build their schema text from `schema/tier-<n>.json`. If P% asks for more tables than the log touches, the seed is every ranked table.
+
+Systems that learn usage from their own history can replay the log instead. The ranking is what that replay should produce, give or take the tables an AI explores along the way.
+
+**Coverage.** A test question is covered when every table it needs is in the seed. `test_question_rank_needed` gives, for each test question, the rank a seed must reach to cover it, or `null` if the log never touches one of its tables. The share of test questions covered at each seed size:
+
+{{COVERAGE_TABLE}}
+
+Coverage shows how much of the schema the seed hands over, not accuracy. To measure accuracy at a given seed size, run the test questions with that seed and score the answers.
 
 ## Scoring
 

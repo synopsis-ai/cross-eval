@@ -13,7 +13,8 @@ AI analysts are increasingly asked business questions over a company's own syste
 - **One fictional company,** Bloom Productions, over two years (July 1, 2024 to June 30, 2026).
 - **Six systems:** a CRM, an ERP, payroll, two ad platforms, and a fictional production-management system called Cuewright.
 - **Four tiers** of the same data at increasing schema width. A lower tier's tables and columns are a subset of every higher tier's, and the core rows are identical in all four.
-- **Questions:** single-system and cross-system, with gold answers, matching rules and a reference query each. They're split into `test` and `log`.
+- **Questions:** single-system and cross-system, with gold answers, matching rules and a reference query each. The test questions are the same for every tier.
+- **Query logs:** one per tier, with Zipf-shaped table usage. The core tables' usage is identical across tiers, and bigger tiers add more padding tables. A table-usage ranking and seeding-coverage curve accompany each log.
 
 Core tables (identical in every tier):
 

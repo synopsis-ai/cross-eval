@@ -1,6 +1,6 @@
 # CROSS: Cross-system Reasoning Over Scattered Sources
 
-CROSS is a fully synthetic dataset for testing whether an AI analyst answers business questions correctly when the data lives in several separate systems. It contains the raw tables a mid-market company's CRM, ERP, payroll, ad platforms and industry software would hand you, plus 405 questions with known answers.
+CROSS is a fully synthetic dataset for testing whether an AI analyst answers business questions correctly when the data lives in several separate systems. It contains the raw tables a mid-market company's CRM, ERP, payroll, ad platforms and industry software would hand you, plus 331 questions with known answers.
 
 It's made by [Synopsis](https://getsynopsis.ai). Everything in it is generated, and no real company, person or customer record is in it.
 
@@ -64,7 +64,9 @@ The same business, and the same questions, at four schema sizes. Each tier is se
 ```
 data/tier-<n>/<system>/<table>.parquet   one Parquet file per table (zstd)
 schema/tier-<n>.json                     every table, column, type and row count per tier
-questions/questions.jsonl                one question per line
+questions/test.jsonl                     the test questions, one per line (the same for every tier)
+questions/log-tier-<n>.jsonl             the tier's query log: past questions, never scored
+usage/tier-<n>.json                      the tier's table-usage ranking and seeding coverage
 MATCHING.md                              how answers are scored
 DATASHEET.md                             how the data was made, and its limits
 generator/                               the code that builds all of the above
@@ -78,12 +80,14 @@ CREATE VIEW cuewright_shows AS SELECT * FROM 'data/tier-1/cuewright/cuewright_sh
 
 ## Questions
 
-| Split | single_table | single_system_join | cross_system | Total |
-|---|---|---|---|---|
-| test | 101 | 48 | 61 | 210 |
-| log | 92 | 46 | 57 | 195 |
+| Stratum | Test questions |
+|---|---|
+| `single_table` | 165 |
+| `single_system_join` | 105 |
+| `cross_system` | 61 |
+| Total | 331 |
 
-Each line of `questions/questions.jsonl` looks like this:
+Each line of `questions/test.jsonl` looks like this:
 
 ```json
 {
@@ -106,20 +110,61 @@ Each line of `questions/questions.jsonl` looks like this:
   "difficulty": "hard",
   "reference_sql": "SELECT SUM(-l.foreignamount * t.exchangerate)\nFROM netsuite_transaction_line l\nJOIN netsuite_transaction t ON t.id = l.\"transaction\"\nJOIN netsuite_department d ON d.id = l.department\nWHERE t.type = 'CustInvc' AND t.voided = 'F' AND l.mainline = 'F' AND d.name = 'Rigging'\n  AND CAST(strptime(t.trandate, '%m/%d/%Y') AS DATE) BETWEEN DATE '2026-01-01' AND DATE '2026-06-30'",
   "reference_sql_dialect": "duckdb",
-  "generator_version": "0.1.0",
+  "generator_version": "0.2.0",
   "id": "cross-0074"
 }
 ```
 
 - **`answer` is the gold answer, plus what's needed to match it fuzzily.** That includes tolerance and precision, every name an entity goes by, and `accepted` alternatives for legitimate readings of the question.
 - **Gold answers come from the simulated business, not from SQL.** The `reference_sql` query shows the question can be answered from the tables, and it reproduces every gold answer on every tier. Scoring never uses it.
-- **Splits:**
-  - `test` is for measurement.
-  - `log` is a separate set from the same templates. Use it as a query history for systems that learn from past questions, and never score on it.
+- **Test and log:**
+  - `questions/test.jsonl` is for measurement.
+  - `questions/log-tier-<n>.jsonl` is the tier's query history: a month of earlier questions. Use it for systems that learn from past questions, and never score on it.
 - **Strata:**
   - `single_table`
   - `single_system_join`
   - `cross_system`: needs two or more systems.
+
+## Query log and seeding
+
+Some systems give the AI a "seed" up front: the schemas of the tables the company queries most. The rest it has to look up. Each tier ships what you need to test how many tables to seed.
+
+**The log.** Each tier has a realistic query log. Usage falls off steeply (Zipf, exponent 1.4): a few tables are queried constantly, and most are queried once or never.
+
+- The core business tables get the same usage in every tier, because it's the same company and the same people asking.
+- Bigger tiers add more rarely-used padding tables to the log, so those compete for seed slots.
+- A few core tables never appear in the log, and some test questions need them. A seed built from history can't contain them.
+
+| Tier | Log questions | Tables the log touches | Share of the tier's tables |
+|---|---|---|---|
+| 1 | 233 | 40 | 60% |
+| 2 | 255 | 48 | 52% |
+| 3 | 310 | 91 | 42% |
+| 4 | 437 | 218 | 31% |
+
+**The ranking.** `usage/tier-<n>.json` ranks every table the log touches by how many log questions use it. To seed the top P% of a tier, take the first `ceil(P% × tables in the tier)` entries of `ranking`, then build their schema text from `schema/tier-<n>.json`. If P% asks for more tables than the log touches, the seed is every ranked table.
+
+Systems that learn usage from their own history can replay the log instead. The ranking is what that replay should produce, give or take the tables an AI explores along the way.
+
+**Coverage.** A test question is covered when every table it needs is in the seed. `test_question_rank_needed` gives, for each test question, the rank a seed must reach to cover it, or `null` if the log never touches one of its tables. The share of test questions covered at each seed size:
+
+| Seed the top… | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
+|---|---|---|---|---|
+| 1% | 1 table, 5% | 1 table, 5% | 3 tables, 20% | 7 tables, 34% |
+| 2% | 2 tables, 11% | 2 tables, 11% | 5 tables, 24% | 14 tables, 51% |
+| 3% | 3 tables, 20% | 3 tables, 20% | 7 tables, 34% | 21 tables, 63% |
+| 5% | 4 tables, 22% | 5 tables, 24% | 11 tables, 48% | 35 tables, 73% |
+| 10% | 7 tables, 34% | 10 tables, 46% | 22 tables, 65% | 70 tables, 86% |
+| 15% | 11 tables, 48% | 14 tables, 51% | 33 tables, 73% | 105 tables, 86% |
+| 20% | 14 tables, 51% | 19 tables, 63% | 44 tables, 73% | 140 tables, 86% |
+| 25% | 17 tables, 57% | 23 tables, 67% | 55 tables, 85% | 175 tables, 86% |
+| 30% | 21 tables, 67% | 28 tables, 73% | 66 tables, 86% | 210 tables, 89% |
+| 40% | 27 tables, 73% | 37 tables, 73% | 88 tables, 89% | 218 tables, 95% |
+| 50% | 34 tables, 83% | 46 tables, 86% | 91 tables, 95% | 218 tables, 95% |
+| 75% | 40 tables, 95% | 48 tables, 95% | 91 tables, 95% | 218 tables, 95% |
+| 100% | 40 tables, 95% | 48 tables, 95% | 91 tables, 95% | 218 tables, 95% |
+
+Coverage shows how much of the schema the seed hands over, not accuracy. To measure accuracy at a given seed size, run the test questions with that seed and score the answers.
 
 ## Scoring
 
